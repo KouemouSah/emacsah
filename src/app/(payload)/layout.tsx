@@ -16,7 +16,8 @@ const serverFunction: ServerFunctionClient = async function (args) {
   'use server'
   const { getPayload } = await import('payload')
   const payload = await getPayload({ config })
-  return payload.jobs.run(args)
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return payload.jobs.run(args as any)
 }
 
 const Layout = ({ children }: Args) => (
