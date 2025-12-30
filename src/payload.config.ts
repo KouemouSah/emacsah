@@ -25,6 +25,10 @@ export default buildConfig({
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
   secret: process.env.PAYLOAD_SECRET || 'CHANGE_ME_IN_PRODUCTION_MIN_32_CHARS',
 
+  routes: {
+    admin: '/cms',
+  },
+
   admin: {
     user: Users.slug,
     meta: {
