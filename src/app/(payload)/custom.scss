@@ -1,181 +1,134 @@
-/* Custom Payload Admin Styles - Professional AI/Data Theme */
+/* Custom Payload Admin Styles - AI/Data Full Background Theme */
 
 @layer payload {
   /* ============================================
-     CSS Variables - Sophisticated Dark Theme
+     CSS Variables - Professional Dark Theme
      ============================================ */
   :root {
-    /* Muted, professional color palette */
+    /* Muted, professional colors */
     --brand-primary: #3b82f6;
     --brand-secondary: #1e40af;
     --brand-accent: #06b6d4;
 
-    /* Neutral grays with blue undertone */
-    --surface-dark: #0a0f1a;
-    --surface-medium: #111827;
-    --surface-light: #1f2937;
-    --surface-lighter: #374151;
+    /* Dark surfaces */
+    --surface-dark: #050a15;
+    --surface-medium: #0a1020;
+    --surface-light: #111d35;
+    --surface-lighter: #1a2744;
+    --surface-card: rgba(10, 16, 32, 0.85);
 
     /* Text colors */
-    --text-primary: #f1f5f9;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    --text-primary: #e8ecf4;
+    --text-secondary: #8896ab;
+    --text-muted: #5a6a80;
 
-    /* Subtle shadows */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
-
-    /* Animation */
-    --transition: all 0.25s ease;
+    /* Effects */
+    --shadow-card: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 100px rgba(59, 130, 246, 0.1);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+    --transition: all 0.3s ease;
   }
 
   /* ============================================
-     Login & Create First User - Split Screen
+     Full Page AI Background
      ============================================ */
+  .template-minimal,
   .login,
   .create-first-user {
+    position: relative;
     min-height: 100vh;
-    height: 100vh;
+    width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: center;
     background: var(--surface-dark);
     overflow: hidden;
   }
 
-  /* Hide default Payload minimal template wrapper */
-  .template-minimal {
-    width: 100%;
-    height: 100vh;
-    max-width: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    display: flex;
-    background: var(--surface-dark);
-  }
-
-  .template-minimal__wrap {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    max-width: none !important;
-    padding: 0 !important;
-  }
-
-  /* ============================================
-     Left Panel - AI/Data Visualization
-     ============================================ */
-  .template-minimal__wrap::before {
+  /* Base gradient layer */
+  .template-minimal::before,
+  .login::before,
+  .create-first-user::before {
     content: '';
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 55%;
-    height: 100vh;
+    inset: 0;
     background:
-      radial-gradient(ellipse at 20% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 70%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 80% 60% at 10% 20%, rgba(59, 130, 246, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 80% at 90% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 50% at 50% 50%, rgba(30, 64, 175, 0.05) 0%, transparent 70%),
       var(--surface-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 0;
   }
 
-  /* AI Neural Network Animation Container */
-  .template-minimal__wrap::after {
+  /* Animated Neural Network SVG Background */
+  .template-minimal::after,
+  .login::after,
+  .create-first-user::after {
     content: '';
     position: fixed;
-    left: 0;
-    top: 0;
-    width: 55%;
-    height: 100vh;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cdefs%3E%3CradialGradient id='nodeGlow' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%233b82f6' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='%233b82f6' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='nodeGlow2' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2306b6d4' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cstyle%3E.node%7Bfill:%233b82f6;opacity:0.9%7D.node2%7Bfill:%2306b6d4;opacity:0.7%7D.line%7Bstroke:%233b82f6;stroke-width:1;opacity:0.2%7D.line2%7Bstroke:%2306b6d4;stroke-width:1;opacity:0.15%7D.pulse%7Banimation:pulse 3s ease-in-out infinite%7D.pulse2%7Banimation:pulse 3s ease-in-out infinite 0.5s%7D.pulse3%7Banimation:pulse 3s ease-in-out infinite 1s%7D.float%7Banimation:float 6s ease-in-out infinite%7D.float2%7Banimation:float 6s ease-in-out infinite 2s%7D@keyframes pulse%7B0%25,100%25%7Bopacity:0.4;transform:scale(1)%7D50%25%7Bopacity:1;transform:scale(1.1)%7D%7D@keyframes float%7B0%25,100%25%7Btransform:translateY(0)%7D50%25%7Btransform:translateY(-10px)%7D%7D%3C/style%3E%3Cg class='float'%3E%3Cline class='line' x1='200' y1='150' x2='350' y2='200'/%3E%3Cline class='line' x1='200' y1='150' x2='300' y2='300'/%3E%3Cline class='line' x1='350' y1='200' x2='500' y2='180'/%3E%3Cline class='line' x1='350' y1='200' x2='400' y2='350'/%3E%3Cline class='line2' x1='300' y1='300' x2='400' y2='350'/%3E%3Cline class='line2' x1='400' y1='350' x2='550' y2='320'/%3E%3Cline class='line' x1='500' y1='180' x2='600' y2='250'/%3E%3Cline class='line2' x1='550' y1='320' x2='600' y2='250'/%3E%3Cline class='line' x1='600' y1='250' x2='650' y2='400'/%3E%3Cline class='line2' x1='300' y1='300' x2='250' y2='420'/%3E%3Cline class='line' x1='250' y1='420' x2='400' y2='450'/%3E%3Cline class='line2' x1='400' y1='450' x2='550' y2='420'/%3E%3Cline class='line' x1='550' y1='420' x2='650' y2='400'/%3E%3C/g%3E%3Cg class='float2'%3E%3Ccircle class='node pulse' cx='200' cy='150' r='8'/%3E%3Ccircle class='node2 pulse2' cx='350' cy='200' r='6'/%3E%3Ccircle class='node pulse3' cx='500' cy='180' r='10'/%3E%3Ccircle class='node2 pulse' cx='300' cy='300' r='5'/%3E%3Ccircle class='node pulse2' cx='400' cy='350' r='12'/%3E%3Ccircle class='node2 pulse3' cx='550' cy='320' r='7'/%3E%3Ccircle class='node pulse' cx='600' cy='250' r='9'/%3E%3Ccircle class='node2 pulse2' cx='250' cy='420' r='6'/%3E%3Ccircle class='node pulse3' cx='400' cy='450' r='8'/%3E%3Ccircle class='node2 pulse' cx='550' cy='420' r='5'/%3E%3Ccircle class='node pulse2' cx='650' cy='400' r='11'/%3E%3C/g%3E%3Ccircle cx='200' cy='150' r='20' fill='url(%23nodeGlow)' class='pulse'/%3E%3Ccircle cx='400' cy='350' r='28' fill='url(%23nodeGlow)' class='pulse2'/%3E%3Ccircle cx='500' cy='180' r='24' fill='url(%23nodeGlow2)' class='pulse3'/%3E%3Ccircle cx='650' cy='400' r='26' fill='url(%23nodeGlow)' class='pulse'/%3E%3C/svg%3E");
-    background-size: 90%;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%233b82f6' stop-opacity='0.6'/%3E%3Cstop offset='100%25' stop-color='%233b82f6' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='g2' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2306b6d4' stop-opacity='0.5'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4' stop-opacity='0'/%3E%3C/radialGradient%3E%3ClinearGradient id='lg1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%233b82f6' stop-opacity='0.3'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cstyle%3E.n1%7Bfill:%233b82f6%7D.n2%7Bfill:%2306b6d4%7D.n3%7Bfill:%231e40af%7D.l1%7Bstroke:%233b82f6;stroke-width:1;opacity:0.15%7D.l2%7Bstroke:%2306b6d4;stroke-width:1;opacity:0.12%7D.l3%7Bstroke:url(%23lg1);stroke-width:2;opacity:0.2%7D.p1%7Banimation:p 4s ease-in-out infinite%7D.p2%7Banimation:p 4s ease-in-out infinite .7s%7D.p3%7Banimation:p 4s ease-in-out infinite 1.4s%7D.p4%7Banimation:p 4s ease-in-out infinite 2.1s%7D.f1%7Banimation:f 8s ease-in-out infinite%7D.f2%7Banimation:f 8s ease-in-out infinite 2s%7D.f3%7Banimation:f 8s ease-in-out infinite 4s%7D@keyframes p%7B0%25,100%25%7Bopacity:.3;transform:scale(1)%7D50%25%7Bopacity:.8;transform:scale(1.15)%7D%7D@keyframes f%7B0%25,100%25%7Btransform:translateY(0)%7D50%25%7Btransform:translateY(-8px)%7D%7D%3C/style%3E%3Cg class='f1'%3E%3Cline class='l1' x1='100' y1='100' x2='280' y2='180'/%3E%3Cline class='l1' x1='280' y1='180' x2='450' y2='120'/%3E%3Cline class='l2' x1='280' y1='180' x2='380' y2='320'/%3E%3Cline class='l1' x1='100' y1='100' x2='200' y2='280'/%3E%3Cline class='l2' x1='200' y1='280' x2='380' y2='320'/%3E%3Cline class='l3' x1='380' y1='320' x2='580' y2='280'/%3E%3Cline class='l1' x1='450' y1='120' x2='650' y2='180'/%3E%3Cline class='l2' x1='580' y1='280' x2='650' y2='180'/%3E%3Cline class='l1' x1='580' y1='280' x2='720' y2='400'/%3E%3C/g%3E%3Cg class='f2'%3E%3Cline class='l2' x1='750' y1='100' x2='900' y2='200'/%3E%3Cline class='l1' x1='900' y1='200' x2='1100' y2='150'/%3E%3Cline class='l3' x1='900' y1='200' x2='950' y2='380'/%3E%3Cline class='l1' x1='1100' y1='150' x2='1250' y2='250'/%3E%3Cline class='l2' x1='950' y1='380' x2='1150' y2='350'/%3E%3Cline class='l1' x1='1150' y1='350' x2='1250' y2='250'/%3E%3Cline class='l2' x1='1150' y1='350' x2='1300' y2='450'/%3E%3C/g%3E%3Cg class='f3'%3E%3Cline class='l1' x1='150' y1='500' x2='300' y2='580'/%3E%3Cline class='l2' x1='300' y1='580' x2='500' y2='520'/%3E%3Cline class='l3' x1='300' y1='580' x2='400' y2='720'/%3E%3Cline class='l1' x1='500' y1='520' x2='700' y2='600'/%3E%3Cline class='l2' x1='400' y1='720' x2='650' y2='750'/%3E%3Cline class='l1' x1='700' y1='600' x2='650' y2='750'/%3E%3Cline class='l2' x1='700' y1='600' x2='900' y2='650'/%3E%3Cline class='l1' x1='900' y1='650' x2='1050' y2='580'/%3E%3Cline class='l2' x1='1050' y1='580' x2='1200' y2='700'/%3E%3Cline class='l1' x1='650' y1='750' x2='850' y2='800'/%3E%3Cline class='l2' x1='850' y1='800' x2='1050' y2='750'/%3E%3Cline class='l1' x1='1050' y1='750' x2='1200' y2='700'/%3E%3C/g%3E%3Cg class='f1'%3E%3Ccircle class='n1 p1' cx='100' cy='100' r='5'/%3E%3Ccircle class='n2 p2' cx='280' cy='180' r='7'/%3E%3Ccircle class='n1 p3' cx='450' cy='120' r='4'/%3E%3Ccircle class='n2 p4' cx='200' cy='280' r='5'/%3E%3Ccircle class='n1 p1' cx='380' cy='320' r='9'/%3E%3Ccircle class='n2 p2' cx='580' cy='280' r='6'/%3E%3Ccircle class='n1 p3' cx='650' cy='180' r='5'/%3E%3Ccircle class='n3 p4' cx='720' cy='400' r='8'/%3E%3C/g%3E%3Cg class='f2'%3E%3Ccircle class='n2 p2' cx='750' cy='100' r='4'/%3E%3Ccircle class='n1 p3' cx='900' cy='200' r='8'/%3E%3Ccircle class='n2 p4' cx='1100' cy='150' r='5'/%3E%3Ccircle class='n1 p1' cx='950' cy='380' r='7'/%3E%3Ccircle class='n2 p2' cx='1150' cy='350' r='6'/%3E%3Ccircle class='n3 p3' cx='1250' cy='250' r='5'/%3E%3Ccircle class='n1 p4' cx='1300' cy='450' r='9'/%3E%3C/g%3E%3Cg class='f3'%3E%3Ccircle class='n1 p3' cx='150' cy='500' r='4'/%3E%3Ccircle class='n2 p4' cx='300' cy='580' r='7'/%3E%3Ccircle class='n1 p1' cx='500' cy='520' r='5'/%3E%3Ccircle class='n2 p2' cx='400' cy='720' r='6'/%3E%3Ccircle class='n1 p3' cx='700' cy='600' r='10'/%3E%3Ccircle class='n2 p4' cx='650' cy='750' r='5'/%3E%3Ccircle class='n1 p1' cx='900' cy='650' r='6'/%3E%3Ccircle class='n3 p2' cx='1050' cy='580' r='7'/%3E%3Ccircle class='n2 p3' cx='850' cy='800' r='5'/%3E%3Ccircle class='n1 p4' cx='1050' cy='750' r='4'/%3E%3Ccircle class='n2 p1' cx='1200' cy='700' r='8'/%3E%3C/g%3E%3Ccircle cx='380' cy='320' r='25' fill='url(%23g1)' class='p1'/%3E%3Ccircle cx='900' cy='200' r='22' fill='url(%23g1)' class='p2'/%3E%3Ccircle cx='700' cy='600' r='28' fill='url(%23g1)' class='p3'/%3E%3Ccircle cx='1300' cy='450' r='24' fill='url(%23g2)' class='p4'/%3E%3Ccircle cx='280' cy='180' r='18' fill='url(%23g2)' class='p1'/%3E%3Ccircle cx='1150' cy='350' r='16' fill='url(%23g2)' class='p3'/%3E%3C/svg%3E");
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    animation: slowFloat 20s ease-in-out infinite;
+    opacity: 0.9;
     z-index: 1;
+    pointer-events: none;
+    animation: slowDrift 30s ease-in-out infinite;
+  }
+
+  @keyframes slowDrift {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(15px, -10px) scale(1.02); }
+    50% { transform: translate(-10px, 15px) scale(0.98); }
+    75% { transform: translate(-15px, -5px) scale(1.01); }
+  }
+
+  /* Particle overlay effect */
+  .template-minimal .template-minimal__wrap::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(59, 130, 246, 0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 70%, rgba(6, 182, 212, 0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 60% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 60%, rgba(6, 182, 212, 0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 15% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 90% 10%, rgba(6, 182, 212, 0.3) 0%, transparent 100%);
+    background-size: 200% 200%;
+    animation: particleFloat 20s linear infinite;
+    z-index: 2;
     pointer-events: none;
   }
 
-  @keyframes slowFloat {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    25% { transform: translate(10px, -15px) scale(1.02); }
-    50% { transform: translate(-5px, 10px) scale(0.98); }
-    75% { transform: translate(-10px, -5px) scale(1.01); }
-  }
-
-  /* Left panel branding text */
-  .template-minimal {
-    position: relative;
-  }
-
-  .template-minimal::before {
-    content: 'PORTFOLIO';
-    position: fixed;
-    left: calc(27.5% - 120px);
-    bottom: 60px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 8px;
-    color: var(--text-muted);
-    opacity: 0.5;
-    z-index: 2;
-  }
-
-  .template-minimal::after {
-    content: 'CMS';
-    position: fixed;
-    left: calc(27.5% - 30px);
-    bottom: 35px;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 12px;
-    color: var(--brand-accent);
-    opacity: 0.6;
-    z-index: 2;
-  }
-
-  /* Data flow particles */
-  @keyframes dataFlow {
-    0% { transform: translateY(100vh) scale(0); opacity: 0; }
-    10% { opacity: 0.6; }
-    90% { opacity: 0.6; }
-    100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+  @keyframes particleFloat {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
   }
 
   /* ============================================
-     Right Panel - Form Area
+     Center Form Card - Glass Effect
      ============================================ */
-  .template-minimal .login,
-  .template-minimal .create-first-user,
-  .template-minimal > div:last-child,
-  .template-minimal__wrap > *:not(style) {
+  .template-minimal__wrap {
     position: relative;
     z-index: 10;
-    margin-left: 55%;
-    width: 45%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--surface-medium);
-    padding: 40px;
-    box-sizing: border-box;
-  }
-
-  /* Form container - compact, no scroll */
-  .template-minimal form,
-  .login form,
-  .create-first-user form {
     width: 100%;
-    max-width: 380px;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 20px;
   }
 
-  /* Hide default branding/logo */
+  .template-minimal__wrap > *:not(style) {
+    background: var(--surface-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Hide Payload default branding */
   .template-minimal__branding,
   .payload-logo,
   .graphic {
@@ -183,18 +136,18 @@
   }
 
   /* ============================================
-     Typography
+     Form Typography
      ============================================ */
   .template-minimal h1,
   .login h1,
   .create-first-user h1 {
-    font-size: 1.75rem !important;
+    font-size: 1.6rem !important;
     font-weight: 600 !important;
     color: var(--text-primary) !important;
     margin: 0 0 8px 0 !important;
+    text-align: center !important;
     background: none !important;
     -webkit-text-fill-color: var(--text-primary) !important;
-    text-align: left !important;
   }
 
   .template-minimal p,
@@ -202,27 +155,29 @@
   .create-first-user p {
     font-size: 14px !important;
     color: var(--text-secondary) !important;
-    margin: 0 0 32px 0 !important;
-    text-align: left !important;
+    margin: 0 0 28px 0 !important;
+    text-align: center !important;
     line-height: 1.5 !important;
   }
 
   /* ============================================
-     Form Fields - Compact & Elegant
+     Form Fields - Compact
      ============================================ */
   .field-type {
-    margin-bottom: 16px !important;
+    margin-bottom: 14px !important;
   }
 
   label.field-label:not(.unstyled) {
-    font-size: 13px !important;
+    font-size: 12px !important;
     font-weight: 500 !important;
     color: var(--text-secondary) !important;
-    margin-bottom: 6px !important;
+    margin-bottom: 5px !important;
     padding-bottom: 0 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
   }
 
-  /* Input fields */
+  /* Input fields - slim */
   input[type="text"],
   input[type="email"],
   input[type="password"],
@@ -230,42 +185,43 @@
   textarea,
   .text-input {
     width: 100% !important;
-    height: 44px !important;
+    height: 42px !important;
     padding: 0 14px !important;
     font-size: 14px !important;
-    background: var(--surface-light) !important;
-    border: 1px solid var(--surface-lighter) !important;
-    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 10px !important;
     color: var(--text-primary) !important;
     transition: var(--transition) !important;
-    box-shadow: none !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2) !important;
 
     &::placeholder {
       color: var(--text-muted) !important;
     }
 
     &:hover {
-      border-color: var(--text-muted) !important;
+      border-color: rgba(255, 255, 255, 0.15) !important;
+      background: rgba(255, 255, 255, 0.05) !important;
     }
 
     &:focus {
       outline: none !important;
       border-color: var(--brand-primary) !important;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
+      background: rgba(59, 130, 246, 0.05) !important;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15), inset 0 1px 2px rgba(0, 0, 0, 0.1) !important;
     }
   }
 
   /* Select/Dropdown */
   .rs__control,
-  .select__control,
-  .select-input {
-    min-height: 44px !important;
-    background: var(--surface-light) !important;
-    border: 1px solid var(--surface-lighter) !important;
-    border-radius: 8px !important;
+  .select__control {
+    min-height: 42px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 10px !important;
 
     &:hover {
-      border-color: var(--text-muted) !important;
+      border-color: rgba(255, 255, 255, 0.15) !important;
     }
 
     &--is-focused {
@@ -277,17 +233,19 @@
   .rs__menu,
   .select__menu {
     background: var(--surface-light) !important;
-    border: 1px solid var(--surface-lighter) !important;
-    border-radius: 8px !important;
-    box-shadow: var(--shadow-lg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 10px !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(10px) !important;
   }
 
   .rs__option,
   .select__option {
     color: var(--text-primary) !important;
+    padding: 10px 14px !important;
 
     &--is-focused {
-      background: var(--surface-lighter) !important;
+      background: rgba(255, 255, 255, 0.05) !important;
     }
 
     &--is-selected {
@@ -308,21 +266,20 @@
     padding: 0 24px !important;
     font-size: 14px !important;
     font-weight: 500 !important;
-    border-radius: 8px !important;
+    border-radius: 10px !important;
     transition: var(--transition) !important;
     margin: 0 !important;
   }
 
   .btn--style-primary {
-    background: var(--brand-primary) !important;
+    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%) !important;
     border: none !important;
     color: white !important;
-    box-shadow: none !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
 
     &:hover {
-      background: var(--brand-secondary) !important;
-      transform: translateY(-1px) !important;
-      box-shadow: var(--shadow-md) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 6px 25px rgba(59, 130, 246, 0.4) !important;
     }
 
     &:active {
@@ -331,20 +288,19 @@
   }
 
   .btn--style-secondary {
-    background: transparent !important;
-    border: 1px solid var(--surface-lighter) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     color: var(--text-secondary) !important;
 
     &:hover {
-      border-color: var(--text-muted) !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border-color: rgba(255, 255, 255, 0.2) !important;
       color: var(--text-primary) !important;
-      background: var(--surface-light) !important;
     }
   }
 
-  /* Form submit area */
   .form-submit {
-    margin-top: 24px !important;
+    margin-top: 20px !important;
 
     .btn {
       width: 100% !important;
@@ -357,9 +313,9 @@
   .checkbox-input__input {
     width: 18px !important;
     height: 18px !important;
-    background: var(--surface-light) !important;
-    border: 1px solid var(--surface-lighter) !important;
-    border-radius: 4px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 5px !important;
 
     &:checked {
       background: var(--brand-primary) !important;
@@ -367,21 +323,16 @@
     }
   }
 
-  .checkbox-input label.field-label {
-    color: var(--text-secondary) !important;
-    font-size: 13px !important;
-  }
-
   /* ============================================
      Links
      ============================================ */
   a {
-    color: var(--brand-primary) !important;
+    color: var(--brand-accent) !important;
     text-decoration: none !important;
     transition: var(--transition) !important;
 
     &:hover {
-      color: var(--brand-accent) !important;
+      color: var(--brand-primary) !important;
     }
   }
 
@@ -391,59 +342,48 @@
   .field-error,
   .error {
     color: #f87171 !important;
-    font-size: 12px !important;
+    font-size: 11px !important;
     margin-top: 4px !important;
   }
 
-  input.error,
-  .field-type.error input {
-    border-color: #f87171 !important;
+  /* ============================================
+     Footer Branding (Optional)
+     ============================================ */
+  .template-minimal__wrap::after {
+    content: 'Powered by AI';
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    z-index: 10;
   }
 
   /* ============================================
-     Dark Theme Overrides (already dark)
+     Admin Dashboard (After Login)
      ============================================ */
-  html[data-theme="dark"] {
-    --theme-bg: var(--surface-dark);
-    --theme-elevation-0: var(--surface-medium);
-    --theme-elevation-50: var(--surface-light);
-    --theme-elevation-100: var(--surface-lighter);
-    --theme-input-bg: var(--surface-light);
-    --theme-text: var(--text-primary);
+  .template-default {
+    background: #0f172a !important;
   }
 
-  /* ============================================
-     Light Theme - Keep dark for login
-     ============================================ */
+  html[data-theme="dark"],
   html[data-theme="light"] {
-    .template-minimal,
-    .login,
-    .create-first-user {
-      --theme-bg: var(--surface-dark);
-      --theme-elevation-0: var(--surface-medium);
-      --theme-input-bg: var(--surface-light);
-      background: var(--surface-dark);
+    .template-default {
+      --theme-bg: #0f172a;
+      --theme-elevation-0: #1e293b;
+      --theme-elevation-50: #1e293b;
+      --theme-elevation-100: #334155;
+      --theme-elevation-150: #475569;
+      --theme-input-bg: #1e293b;
+      --theme-text: #f1f5f9;
     }
   }
 
-  /* ============================================
-     Dashboard & Admin (After Login)
-     ============================================ */
-  .template-default {
-    background: #f8fafc;
-  }
-
-  html[data-theme="light"] .template-default {
-    --theme-bg: #f8fafc;
-    --theme-elevation-0: #ffffff;
-    --theme-elevation-50: #f8fafc;
-    --theme-elevation-100: #f1f5f9;
-    --theme-elevation-150: #e2e8f0;
-    --theme-input-bg: #ffffff;
-    --theme-text: #1e293b;
-  }
-
-  /* Admin navigation */
+  /* Navigation */
   .nav {
     background: var(--theme-elevation-0) !important;
     border-right: 1px solid var(--theme-elevation-100) !important;
@@ -451,7 +391,7 @@
 
   .nav__link,
   .nav-group__toggle {
-    border-radius: 6px !important;
+    border-radius: 8px !important;
     margin: 2px 8px !important;
     transition: var(--transition) !important;
 
@@ -460,12 +400,12 @@
     }
 
     &.active {
-      background: rgba(59, 130, 246, 0.1) !important;
+      background: rgba(59, 130, 246, 0.15) !important;
       color: var(--brand-primary) !important;
     }
   }
 
-  /* Admin header */
+  /* Header */
   .app-header {
     background: var(--theme-elevation-0) !important;
     border-bottom: 1px solid var(--theme-elevation-100) !important;
@@ -473,26 +413,25 @@
 
   /* Cards */
   .card {
-    border-radius: 10px !important;
+    border-radius: 12px !important;
     border: 1px solid var(--theme-elevation-100) !important;
-    box-shadow: var(--shadow-sm) !important;
+    background: var(--theme-elevation-0) !important;
     transition: var(--transition) !important;
 
     &:hover {
-      box-shadow: var(--shadow-md) !important;
+      border-color: var(--brand-primary) !important;
       transform: translateY(-2px);
     }
   }
 
   /* Tables */
   .table {
-    border-radius: 10px !important;
+    border-radius: 12px !important;
     overflow: hidden;
     border: 1px solid var(--theme-elevation-100) !important;
 
     th {
       background: var(--theme-elevation-50) !important;
-      font-weight: 600 !important;
     }
 
     tr:hover {
@@ -500,16 +439,15 @@
     }
   }
 
-  /* Collapsibles */
+  /* Collapsibles & Popups */
   .collapsible {
-    border-radius: 10px !important;
+    border-radius: 12px !important;
     border: 1px solid var(--theme-elevation-100) !important;
   }
 
-  /* Popups */
   .popup__content {
-    border-radius: 10px !important;
-    box-shadow: var(--shadow-lg) !important;
+    border-radius: 12px !important;
+    background: var(--theme-elevation-0) !important;
     border: 1px solid var(--theme-elevation-100) !important;
   }
 
@@ -533,57 +471,37 @@
   }
 
   /* ============================================
-     Responsive - Mobile
+     Responsive
      ============================================ */
-  @media (max-width: 1024px) {
-    .template-minimal__wrap::before,
-    .template-minimal__wrap::after,
-    .template-minimal::before,
-    .template-minimal::after {
-      display: none;
+  @media (max-width: 480px) {
+    .template-minimal__wrap {
+      padding: 16px;
     }
 
-    .template-minimal .login,
-    .template-minimal .create-first-user,
-    .template-minimal > div:last-child,
     .template-minimal__wrap > *:not(style) {
-      margin-left: 0;
-      width: 100%;
-      padding: 24px;
+      padding: 28px 24px;
     }
 
-    .template-minimal form,
-    .login form,
-    .create-first-user form {
-      max-width: 100%;
+    .template-minimal h1 {
+      font-size: 1.4rem !important;
     }
   }
 
   /* ============================================
      Animations
      ============================================ */
-  @keyframes fadeInUp {
+  @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(15px) scale(0.98);
     }
     to {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
   }
 
-  .template-minimal form,
-  .login form,
-  .create-first-user form {
-    animation: fadeInUp 0.5s ease-out;
-  }
-
-  /* Subtle glow effect on the left panel border */
-  .template-minimal .login,
-  .template-minimal .create-first-user,
-  .template-minimal > div:last-child,
   .template-minimal__wrap > *:not(style) {
-    box-shadow: -1px 0 0 0 rgba(59, 130, 246, 0.1);
+    animation: fadeIn 0.6s ease-out;
   }
 }
