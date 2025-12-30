@@ -33,7 +33,8 @@
       "Bash(pnpm exec payload migrate:create:*)",
       "WebSearch",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:onelink-nu.vercel.app)"
     ]
   }
 }
