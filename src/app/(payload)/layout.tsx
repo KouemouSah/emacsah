@@ -14,8 +14,9 @@ type Args = {
 
 const serverFunction: ServerFunctionClient = async function (args) {
   'use server'
-  const { runJobs } = await import('payload')
-  return runJobs(args)
+  const { getPayload } = await import('payload')
+  const payload = await getPayload({ config })
+  return payload.jobs.run(args)
 }
 
 const Layout = ({ children }: Args) => (
