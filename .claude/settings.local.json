@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(nslookup:*)",
+      "Bash(ssh root@180.149.199.86 \"docker ps --format ''table {{.Names}}\\\\t{{.Image}}\\\\t{{.Status}}'' | grep -i postgres\")",
+      "Bash(ssh root@180.149.199.86 \"docker exec db-karlandklaude psql -U christy -d christy -c ''\\\\du'' -c ''\\\\l''\")",
+      "Bash(ssh root@180.149.199.86 \"docker exec db-karlandklaude psql -U postgres -c ''\\\\du'' -c ''\\\\l''\")",
+      "Bash(ssh root@180.149.199.86 \"docker exec db-karlandklaude psql -U odoo -c ''\\\\du'' -c ''\\\\l''\")",
+      "Bash(ssh root@180.149.199.86 \"docker exec db-karlandklaude psql -U karlandklaude -d karlandklaude -c ''\\\\du'' -c ''\\\\l''\")",
+      "Bash(ssh root@180.149.199.86 \"docker inspect db-karlandklaude --format ''{{range .Config.Env}}{{println .}}{{end}}'' | grep -iE ''\\(user|pass|db|postgres\\)''\")",
+      "Bash(ssh root@180.149.199.86 \"docker exec db-karlandklaude psql -U christy -d karlandklaude -c ''\\\\du'' -c ''\\\\l''\")",
+      "Bash(ssh root@180.149.199.86 \"docker exec db-karlandklaude psql -U christy -d karlandklaude -c \"\"CREATE USER folio_sah WITH PASSWORD ''Fk7mP9vL2nQ5wR3sT8bY1cA6eF4hJ0uZ'';\"\" -c \"\"CREATE DATABASE payload_portfolio OWNER folio_sah ENCODING ''UTF8'' LC_COLLATE ''en_US.utf8'' LC_CTYPE ''en_US.utf8'' TEMPLATE template0;\"\" -c \"\"GRANT ALL PRIVILEGES ON DATABASE payload_portfolio TO folio_sah;\"\"\")",
+      "Bash(ssh root@180.149.199.86:*)",
+      "Bash(gh auth status:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(gh secret set:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh secret:*)",
+      "Bash(gh api:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

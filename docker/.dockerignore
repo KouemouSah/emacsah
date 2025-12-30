@@ -1,0 +1,85 @@
+# ===========================================
+# Docker Ignore - Portfolio CMS
+# Ce fichier est utilise depuis le contexte racine
+# ===========================================
+
+# Dependencies
+node_modules
+.pnpm-store
+.pnpm-debug.log
+
+# Build outputs
+dist
+build
+.next
+.turbo
+
+# Development
+.git
+.gitignore
+.gitattributes
+
+# Markdown (sauf README)
+**/*.md
+!README.md
+
+# Environment files (sauf example)
+.env
+.env.*
+!.env.example
+
+# IDE et editeurs
+.vscode
+.vs
+.idea
+*.swp
+*.swo
+*.swn
+*~
+.DS_Store
+
+# Tests
+coverage
+.nyc_output
+__tests__
+**/*.test.ts
+**/*.spec.ts
+jest.config.*
+vitest.config.*
+
+# Docker (eviter la recursion)
+docker/Dockerfile*
+docker/docker-compose*
+docker/.dockerignore
+
+# Documentation
+docs
+documentations
+
+# Claude
+.claude
+
+# Logs
+*.log
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Temporary files
+tmp
+temp
+.tmp
+.cache
+
+# OS files
+Thumbs.db
+
+# Miscellaneous
+*.tgz
+*.tar.gz
+*.zip
+
+# GitHub
+.github

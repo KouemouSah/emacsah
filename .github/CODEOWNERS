@@ -1,0 +1,21 @@
+# ===========================================
+# CODEOWNERS - Portfolio CMS
+# ===========================================
+# Ces utilisateurs seront automatiquement
+# demandes en review sur les PRs
+
+# Default owner for everything
+* @emacsah
+
+# Workflows CI/CD
+/.github/ @emacsah
+
+# Docker configuration
+/docker/ @emacsah
+
+# Source code
+/src/ @emacsah
+
+# Configuration files
+/*.json @emacsah
+/*.ts @emacsah

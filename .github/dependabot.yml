@@ -1,0 +1,58 @@
+# ===========================================
+# Dependabot - Mises a jour automatiques
+# ===========================================
+
+version: 2
+
+updates:
+  # npm dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Europe/Paris"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps:"
+    labels:
+      - "dependencies"
+      - "npm"
+    groups:
+      payload:
+        patterns:
+          - "@payloadcms/*"
+          - "payload"
+      dev-dependencies:
+        dependency-type: "development"
+        patterns:
+          - "*"
+
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Europe/Paris"
+    commit-message:
+      prefix: "ci:"
+    labels:
+      - "dependencies"
+      - "github-actions"
+
+  # Docker
+  - package-ecosystem: "docker"
+    directory: "/docker"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Europe/Paris"
+    commit-message:
+      prefix: "docker:"
+    labels:
+      - "dependencies"
+      - "docker"

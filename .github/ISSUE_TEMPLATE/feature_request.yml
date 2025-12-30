@@ -1,0 +1,70 @@
+name: Feature Request
+description: Proposer une nouvelle fonctionnalite
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+assignees:
+  - emacsah
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de proposer une amelioration !
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Probleme ou besoin
+      description: Quel probleme cette fonctionnalite resoudrait-elle ?
+      placeholder: Je suis frustre quand...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution proposee
+      description: Decrivez la solution que vous aimeriez voir
+      placeholder: Je voudrais que...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considerees
+      description: Avez-vous considere d'autres solutions ?
+      placeholder: J'ai aussi pense a...
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priorite estimee
+      options:
+        - Basse (nice to have)
+        - Moyenne (amelioration utile)
+        - Haute (bloquant ou tres important)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categorie
+      options:
+        - Admin Panel
+        - API
+        - Collections
+        - Performance
+        - Securite
+        - UI/UX
+        - Documentation
+        - Autre
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexte additionnel
+      description: Screenshots, mockups, liens...
