@@ -186,11 +186,12 @@
   }
 
   /* ============================================
-     Select - Compact
+     Select - Compact & Fixed
      ============================================ */
   .rs__control,
   .select__control {
     min-height: 40px !important;
+    height: 40px !important;
     background: var(--surface-card) !important;
     border: 1px solid var(--border-color) !important;
     border-radius: 8px !important;
@@ -209,6 +210,17 @@
 
   .rs__value-container {
     padding: 0 14px !important;
+    height: 38px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* Hide the checkbox/input element inside select */
+  .rs__value-container input {
+    position: absolute !important;
+    opacity: 0 !important;
+    width: 1px !important;
+    height: 1px !important;
   }
 
   .rs__single-value,
@@ -216,20 +228,40 @@
     color: var(--text-primary) !important;
     font-size: 14px !important;
     margin: 0 !important;
+    position: static !important;
+    transform: none !important;
+    max-width: 100% !important;
+    overflow: visible !important;
   }
 
   .rs__placeholder {
     color: var(--text-muted) !important;
     font-size: 14px !important;
+    margin: 0 !important;
+    position: static !important;
+    transform: none !important;
+  }
+
+  .rs__input-container {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .rs__indicators {
+    height: 38px !important;
   }
 
   .rs__indicator {
-    padding: 8px !important;
+    padding: 8px 12px !important;
     color: var(--text-secondary) !important;
   }
 
   .rs__indicator-separator {
     display: none !important;
+  }
+
+  .rs__clear-indicator {
+    padding: 8px 4px !important;
   }
 
   .rs__menu,
@@ -263,6 +295,12 @@
       background: var(--brand-primary) !important;
       color: white !important;
     }
+  }
+
+  /* Fix checkbox inside option */
+  .rs__option input[type="checkbox"],
+  .select__option input[type="checkbox"] {
+    display: none !important;
   }
 
   /* ============================================
