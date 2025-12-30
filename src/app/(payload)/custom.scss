@@ -1,4 +1,4 @@
-/* Custom Payload Admin Styles - SkillForge AI Inspired */
+/* Portfolio CMS - Professional Admin Styles */
 
 @layer payload {
   /* ============================================
@@ -6,20 +6,23 @@
      ============================================ */
   :root {
     --brand-primary: #6366f1;
-    --brand-secondary: #8b5cf6;
-    --brand-hover: #4f46e5;
-    --surface-bg: #f9fafb;
+    --brand-primary-hover: #4f46e5;
+    --brand-primary-light: rgba(99, 102, 241, 0.1);
+    --surface-bg: #f8fafc;
     --surface-card: #ffffff;
-    --text-primary: #111827;
-    --text-secondary: #6b7280;
-    --text-muted: #9ca3af;
-    --border-color: #d1d5db;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --border-color: #e2e8f0;
     --border-focus: #6366f1;
-    --transition: all 0.2s ease;
+    --radius-sm: 6px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --transition: 150ms ease;
   }
 
   /* ============================================
-     Page Container - Two Column Layout
+     Login & Create First User - Split Layout
      ============================================ */
   .template-minimal,
   .login,
@@ -30,62 +33,56 @@
     background: var(--surface-bg);
   }
 
-  /* ============================================
-     Left Side - Gradient Branding
-     ============================================ */
+  /* Left Panel - Branding */
   .template-minimal::before {
     content: '';
     position: fixed;
     left: 0;
     top: 0;
-    width: 50%;
+    width: 45%;
     height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
     z-index: 0;
   }
 
-  /* Left side content overlay */
   .template-minimal::after {
-    content: '';
+    content: 'Portfolio CMS';
     position: fixed;
     left: 0;
     top: 0;
-    width: 50%;
+    width: 45%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -0.02em;
     z-index: 1;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%23ffffff' stop-opacity='0.05'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='140' y='80' width='120' height='120' rx='24' fill='url(%23grad)'/%3E%3Cpath d='M200 110 L200 180 M170 145 L230 145' stroke='white' stroke-width='8' stroke-linecap='round' opacity='0.9'/%3E%3Ctext x='200' y='250' text-anchor='middle' fill='white' font-family='system-ui' font-size='28' font-weight='700'%3EPortfolio CMS%3C/text%3E%3Ctext x='200' y='285' text-anchor='middle' fill='white' font-family='system-ui' font-size='14' opacity='0.8'%3EGérez votre portfolio avec simplicité%3C/text%3E%3Crect x='100' y='330' width='200' height='100' rx='16' fill='url(%23grad)'/%3E%3Ccircle cx='130' cy='360' r='12' fill='white' opacity='0.3'/%3E%3Ctext x='155' y='365' fill='white' font-family='system-ui' font-size='12' opacity='0.9'%3EProjets illimités%3C/text%3E%3Ccircle cx='130' cy='395' r='12' fill='white' opacity='0.3'/%3E%3Ctext x='155' y='400' fill='white' font-family='system-ui' font-size='12' opacity='0.9'%3EBlog intégré%3C/text%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 320px auto;
     pointer-events: none;
   }
 
-  /* ============================================
-     Right Side - Form Container
-     ============================================ */
+  /* Right Panel - Form */
   .template-minimal__wrap {
     position: relative;
     z-index: 10;
-    width: 50%;
-    margin-left: 50%;
+    width: 55%;
+    margin-left: 45%;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
-    box-sizing: border-box;
+    padding: 48px;
     background: var(--surface-bg);
   }
 
   .template-minimal__wrap > *:not(style) {
     width: 100%;
-    max-width: 380px;
+    max-width: 400px;
   }
 
-  /* Hide default branding */
+  /* Hide Payload branding */
   .template-minimal__branding,
   .payload-logo,
   .graphic {
@@ -93,202 +90,190 @@
   }
 
   /* ============================================
-     Title & Description
+     Typography
      ============================================ */
   .template-minimal h1,
   .login h1,
   .create-first-user h1 {
-    font-size: 1.4rem !important;
-    font-weight: 700 !important;
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
     color: var(--text-primary) !important;
-    margin: 0 0 6px 0 !important;
-    padding: 0 !important;
-    background: none !important;
-    -webkit-text-fill-color: var(--text-primary) !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.3 !important;
   }
 
   .template-minimal p,
   .login p,
   .create-first-user p {
-    font-size: 13px !important;
+    font-size: 0.875rem !important;
     color: var(--text-secondary) !important;
     margin: 0 0 24px 0 !important;
-    padding: 0 !important;
     line-height: 1.5 !important;
   }
 
   /* ============================================
-     Form Layout - Compact
+     Form Layout
      ============================================ */
   .template-minimal form,
   .login form,
   .create-first-user form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
   }
 
   /* ============================================
-     Field Container
+     Field Container - Uniform Spacing
      ============================================ */
   .field-type {
     margin: 0 !important;
     padding: 0 !important;
   }
 
-  /* ============================================
-     Labels - Compact
-     ============================================ */
-  label.field-label:not(.unstyled) {
-    display: block !important;
-    font-size: 13px !important;
-    font-weight: 500 !important;
-    color: var(--text-primary) !important;
-    margin-bottom: 6px !important;
-    padding: 0 !important;
+  .field-type + .field-type {
+    margin-top: 0 !important;
   }
 
   /* ============================================
-     Inputs - Compact (40px height)
+     Labels - Consistent Style
+     ============================================ */
+  label.field-label:not(.unstyled) {
+    display: block !important;
+    font-size: 0.875rem !important;
+    font-weight: 500 !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 8px !important;
+    padding: 0 !important;
+  }
+
+  /* Required indicator */
+  .field-label .required {
+    color: #ef4444 !important;
+    margin-left: 2px !important;
+  }
+
+  /* ============================================
+     Inputs - Clean & Uniform
      ============================================ */
   input[type="text"],
   input[type="email"],
   input[type="password"],
   input[type="number"],
+  input[type="url"],
+  input[type="tel"],
   textarea,
   .text-input {
     width: 100% !important;
-    height: 40px !important;
+    height: 44px !important;
     padding: 0 14px !important;
-    font-size: 14px !important;
+    font-size: 0.9375rem !important;
     font-family: inherit !important;
     background: var(--surface-card) !important;
     border: 1px solid var(--border-color) !important;
-    border-radius: 8px !important;
+    border-radius: var(--radius-md) !important;
     color: var(--text-primary) !important;
-    transition: var(--transition) !important;
+    transition: border-color var(--transition), box-shadow var(--transition) !important;
     box-shadow: none !important;
-    box-sizing: border-box !important;
 
     &::placeholder {
       color: var(--text-muted) !important;
     }
 
     &:hover {
-      border-color: #9ca3af !important;
+      border-color: #cbd5e1 !important;
     }
 
     &:focus {
       outline: none !important;
       border-color: var(--border-focus) !important;
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
+      box-shadow: 0 0 0 3px var(--brand-primary-light) !important;
     }
   }
 
+  textarea {
+    height: auto !important;
+    min-height: 100px !important;
+    padding: 12px 14px !important;
+    resize: vertical !important;
+  }
+
   /* ============================================
-     Select - Compact & Fixed
+     Select Dropdowns - Clean Style
      ============================================ */
   .rs__control,
   .select__control {
-    min-height: 40px !important;
-    height: 40px !important;
+    min-height: 44px !important;
     background: var(--surface-card) !important;
     border: 1px solid var(--border-color) !important;
-    border-radius: 8px !important;
+    border-radius: var(--radius-md) !important;
     box-shadow: none !important;
     cursor: pointer !important;
 
     &:hover {
-      border-color: #9ca3af !important;
+      border-color: #cbd5e1 !important;
     }
 
     &--is-focused {
       border-color: var(--border-focus) !important;
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
+      box-shadow: 0 0 0 3px var(--brand-primary-light) !important;
     }
   }
 
   .rs__value-container {
     padding: 0 14px !important;
-    height: 38px !important;
-    display: flex !important;
-    align-items: center !important;
   }
 
-  /* Hide the checkbox/input element inside select */
-  .rs__value-container input {
+  /* Hide checkbox in select */
+  .rs__value-container input[type="checkbox"],
+  .rs__value-container input:not([type]) {
     position: absolute !important;
     opacity: 0 !important;
     width: 1px !important;
     height: 1px !important;
+    pointer-events: none !important;
   }
 
   .rs__single-value,
   .select__single-value {
     color: var(--text-primary) !important;
-    font-size: 14px !important;
+    font-size: 0.9375rem !important;
     margin: 0 !important;
-    position: static !important;
-    transform: none !important;
-    max-width: 100% !important;
-    overflow: visible !important;
   }
 
   .rs__placeholder {
     color: var(--text-muted) !important;
-    font-size: 14px !important;
-    margin: 0 !important;
-    position: static !important;
-    transform: none !important;
-  }
-
-  .rs__input-container {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .rs__indicators {
-    height: 38px !important;
-  }
-
-  .rs__indicator {
-    padding: 8px 12px !important;
-    color: var(--text-secondary) !important;
+    font-size: 0.9375rem !important;
   }
 
   .rs__indicator-separator {
     display: none !important;
   }
 
-  .rs__clear-indicator {
-    padding: 8px 4px !important;
+  .rs__indicator {
+    color: var(--text-secondary) !important;
+    padding: 8px 12px !important;
   }
 
   .rs__menu,
   .select__menu {
     background: var(--surface-card) !important;
     border: 1px solid var(--border-color) !important;
-    border-radius: 8px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08) !important;
     margin-top: 4px !important;
     overflow: hidden !important;
     z-index: 100 !important;
   }
 
-  .rs__menu-list {
-    padding: 4px !important;
-  }
-
   .rs__option,
   .select__option {
     color: var(--text-primary) !important;
-    padding: 10px 12px !important;
-    font-size: 14px !important;
-    border-radius: 6px !important;
+    padding: 10px 14px !important;
+    font-size: 0.9375rem !important;
     cursor: pointer !important;
 
     &--is-focused {
-      background: #f3f4f6 !important;
+      background: var(--surface-bg) !important;
     }
 
     &--is-selected {
@@ -297,14 +282,8 @@
     }
   }
 
-  /* Fix checkbox inside option */
-  .rs__option input[type="checkbox"],
-  .select__option input[type="checkbox"] {
-    display: none !important;
-  }
-
   /* ============================================
-     Submit Button - Compact
+     Buttons - Professional Style
      ============================================ */
   .form-submit {
     margin-top: 8px !important;
@@ -312,14 +291,18 @@
   }
 
   .btn {
-    height: 40px !important;
+    height: 44px !important;
     padding: 0 20px !important;
-    font-size: 14px !important;
+    font-size: 0.9375rem !important;
     font-weight: 500 !important;
     font-family: inherit !important;
-    border-radius: 8px !important;
-    transition: var(--transition) !important;
+    border-radius: var(--radius-md) !important;
+    transition: all var(--transition) !important;
     cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
   }
 
   .btn--style-primary {
@@ -330,15 +313,74 @@
     box-shadow: none !important;
 
     &:hover {
-      background: var(--brand-hover) !important;
+      background: var(--brand-primary-hover) !important;
     }
 
     &:focus {
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3) !important;
+      box-shadow: 0 0 0 3px var(--brand-primary-light) !important;
     }
 
     &:active {
-      transform: scale(0.98) !important;
+      transform: translateY(1px) !important;
+    }
+  }
+
+  .btn--style-secondary {
+    background: var(--surface-card) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-primary) !important;
+
+    &:hover {
+      background: var(--surface-bg) !important;
+      border-color: #cbd5e1 !important;
+    }
+  }
+
+  /* ============================================
+     Checkbox - Clean Style
+     ============================================ */
+  .checkbox-input {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  .checkbox-input__input {
+    width: 18px !important;
+    height: 18px !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    transition: all var(--transition) !important;
+
+    &:checked {
+      background: var(--brand-primary) !important;
+      border-color: var(--brand-primary) !important;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 3px var(--brand-primary-light) !important;
+    }
+  }
+
+  .checkbox-input label.field-label {
+    font-size: 0.875rem !important;
+    font-weight: 400 !important;
+    color: var(--text-secondary) !important;
+    margin: 0 !important;
+  }
+
+  /* ============================================
+     Links
+     ============================================ */
+  a {
+    color: var(--brand-primary) !important;
+    text-decoration: none !important;
+    transition: color var(--transition) !important;
+
+    &:hover {
+      color: var(--brand-primary-hover) !important;
+      text-decoration: underline !important;
     }
   }
 
@@ -348,124 +390,133 @@
   .field-error,
   .error {
     color: #ef4444 !important;
-    font-size: 12px !important;
+    font-size: 0.8125rem !important;
     margin-top: 6px !important;
   }
 
   /* ============================================
-     Links
-     ============================================ */
-  a {
-    color: var(--brand-primary) !important;
-    text-decoration: none !important;
-    font-size: 13px !important;
-    transition: var(--transition) !important;
-
-    &:hover {
-      color: var(--brand-hover) !important;
-      text-decoration: underline !important;
-    }
-  }
-
-  /* ============================================
-     Checkbox
-     ============================================ */
-  .checkbox-input__input {
-    width: 16px !important;
-    height: 16px !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 4px !important;
-    cursor: pointer !important;
-
-    &:checked {
-      background: var(--brand-primary) !important;
-      border-color: var(--brand-primary) !important;
-    }
-
-    &:focus {
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15) !important;
-    }
-  }
-
-  .checkbox-input label.field-label {
-    font-size: 13px !important;
-    font-weight: 400 !important;
-    color: var(--text-secondary) !important;
-  }
-
-  /* ============================================
-     Admin Dashboard (after login)
+     Admin Dashboard Styles
      ============================================ */
   .template-default {
-    background: #f9fafb !important;
+    background: var(--surface-bg) !important;
   }
 
-  html[data-theme="dark"],
-  html[data-theme="light"] {
-    .template-default {
-      --theme-bg: #f9fafb;
-      --theme-elevation-0: #ffffff;
-      --theme-elevation-50: #f3f4f6;
-      --theme-elevation-100: #e5e7eb;
-      --theme-input-bg: #ffffff;
-      --theme-text: #111827;
-    }
-  }
-
+  /* Navigation */
   .nav {
-    background: var(--theme-elevation-0) !important;
-    border-right: 1px solid var(--theme-elevation-100) !important;
+    background: var(--surface-card) !important;
+    border-right: 1px solid var(--border-color) !important;
   }
 
   .nav__link,
   .nav-group__toggle {
-    border-radius: 8px !important;
+    border-radius: var(--radius-sm) !important;
     margin: 2px 8px !important;
-    transition: var(--transition) !important;
+    transition: all var(--transition) !important;
 
     &:hover {
-      background: var(--theme-elevation-50) !important;
+      background: var(--surface-bg) !important;
     }
 
     &.active {
-      background: rgba(99, 102, 241, 0.1) !important;
+      background: var(--brand-primary-light) !important;
       color: var(--brand-primary) !important;
     }
   }
 
+  /* Header */
   .app-header {
-    background: var(--theme-elevation-0) !important;
-    border-bottom: 1px solid var(--theme-elevation-100) !important;
+    background: var(--surface-card) !important;
+    border-bottom: 1px solid var(--border-color) !important;
   }
 
+  /* Cards */
   .card {
-    border-radius: 12px !important;
-    border: 1px solid var(--theme-elevation-100) !important;
-    background: var(--theme-elevation-0) !important;
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid var(--border-color) !important;
+    background: var(--surface-card) !important;
   }
 
+  /* Tables */
   .table {
-    border-radius: 12px !important;
-    border: 1px solid var(--theme-elevation-100) !important;
+    border-radius: var(--radius-lg) !important;
+    border: 1px solid var(--border-color) !important;
+    overflow: hidden !important;
   }
 
+  /* Popups */
   .popup__content {
-    border-radius: 12px !important;
-    background: var(--theme-elevation-0) !important;
-    border: 1px solid var(--theme-elevation-100) !important;
+    border-radius: var(--radius-lg) !important;
+    background: var(--surface-card) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Tabs */
+  .tabs-field__tabs {
+    border-bottom: 1px solid var(--border-color) !important;
+  }
+
+  .tabs-field__tab-button {
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important;
+    transition: all var(--transition) !important;
+
+    &.tabs-field__tab-button--active {
+      background: var(--surface-card) !important;
+      border-color: var(--border-color) var(--border-color) transparent !important;
+    }
+  }
+
+  /* Rich Text Editor */
+  .rich-text {
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+    overflow: hidden !important;
+
+    &:focus-within {
+      border-color: var(--border-focus) !important;
+      box-shadow: 0 0 0 3px var(--brand-primary-light) !important;
+    }
+  }
+
+  .rich-text-toolbar {
+    background: var(--surface-bg) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+  }
+
+  /* Upload Field */
+  .upload-field {
+    border: 2px dashed var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+    transition: all var(--transition) !important;
+
+    &:hover {
+      border-color: var(--brand-primary) !important;
+      background: var(--brand-primary-light) !important;
+    }
+  }
+
+  /* Array Field */
+  .array-field__row {
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+    margin-bottom: 12px !important;
+  }
+
+  /* Group Field */
+  .group-field__wrap {
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 20px !important;
+    background: var(--surface-bg) !important;
   }
 
   /* ============================================
      Responsive
      ============================================ */
   @media (max-width: 1024px) {
-    .template-minimal::before {
-      width: 40%;
-    }
-
+    .template-minimal::before,
     .template-minimal::after {
       width: 40%;
-      background-size: 260px auto;
     }
 
     .template-minimal__wrap {
@@ -475,31 +526,24 @@
   }
 
   @media (max-width: 768px) {
-    .template-minimal,
-    .login,
-    .create-first-user {
-      flex-direction: column;
-    }
-
     .template-minimal::before {
       position: relative;
       width: 100%;
-      height: 200px;
+      height: 160px;
     }
 
     .template-minimal::after {
       position: absolute;
       width: 100%;
-      height: 200px;
-      background-size: 200px auto;
-      background-position: center;
+      height: 160px;
+      font-size: 1.5rem;
     }
 
     .template-minimal__wrap {
       width: 100%;
       margin-left: 0;
       min-height: auto;
-      padding: 30px 24px 40px;
+      padding: 32px 24px 48px;
     }
 
     .template-minimal__wrap > *:not(style) {
@@ -507,28 +551,13 @@
     }
   }
 
-  @media (max-width: 480px) {
-    .template-minimal::before {
-      height: 160px;
-    }
-
-    .template-minimal::after {
-      height: 160px;
-      background-size: 160px auto;
-    }
-
-    .template-minimal__wrap {
-      padding: 24px 20px 32px;
-    }
-  }
-
   /* ============================================
-     Animation
+     Animations
      ============================================ */
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(8px);
     }
     to {
       opacity: 1;
@@ -537,6 +566,6 @@
   }
 
   .template-minimal__wrap > *:not(style) {
-    animation: fadeIn 0.4s ease-out;
+    animation: fadeIn 0.3s ease-out;
   }
 }

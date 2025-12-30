@@ -1,8 +1,10 @@
 import { buildConfig } from 'payload'
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { fileURLToPath } from 'url'
+
+// Editor
+import { richTextEditor } from './editor/config'
 
 // Collections
 import { Users } from './collections/Users'
@@ -13,6 +15,7 @@ import { Articles } from './collections/Articles'
 import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { SocialLinks } from './collections/SocialLinks'
+import { Technologies } from './collections/Technologies'
 
 // Globals
 import { SiteSettings } from './globals/SiteSettings'
@@ -36,7 +39,7 @@ export default buildConfig({
     },
   },
 
-  editor: lexicalEditor({}),
+  editor: richTextEditor,
 
   db: postgresAdapter({
     pool: {
@@ -52,6 +55,7 @@ export default buildConfig({
     Projects,
     Articles,
     Categories,
+    Technologies,
     Media,
     SocialLinks,
   ],
