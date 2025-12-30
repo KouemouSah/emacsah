@@ -29,11 +29,6 @@ export default buildConfig({
     user: Users.slug,
     meta: {
       titleSuffix: '- Portfolio CMS',
-      favicon: '/favicon.ico',
-      ogImage: '/og-image.png',
-    },
-    routes: {
-      admin: '/cms',
     },
   },
 
