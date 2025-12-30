@@ -19,7 +19,18 @@
       "Bash(gh auth:*)",
       "Bash(gh secret:*)",
       "Bash(gh api:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfeat: Initial setup - Next.js + Payload CMS unified app\n\n- Next.js 15 with App Router\n- Payload CMS 3.0 integrated\n- Tailwind CSS for styling\n- Docker configuration \\(production + dev\\)\n- GitHub Actions CI/CD pipelines\n- Admin panel at /cms \\(custom path\\)\n- PostgreSQL database setup\n- Redis cache configuration\n- Nginx reverse proxy with SSL\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(gh run:*)",
+      "Bash(git commit:*)",
+      "Bash(pnpm install)",
+      "Bash(grep:*)",
+      "Skill(07_deploy)",
+      "Bash(curl:*)",
+      "Bash(NPM_TOKEN=\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGkiLCJhdHRycyI6eyJpZCI6MX0sInNjb3BlIjpbInVzZXIiXSwiZXhwaXJlc0luIjoiMWQiLCJqdGkiOiIzaUtLMlJxbXM1SDhrclB6IiwiaWF0IjoxNzY3MDc3OTc4LCJleHAiOjE3NjcxNjQzNzh9.bGRvtOAe0VkUfceT7hyG79j4PMz8ZVOIw4quApY8AdCBTc6i_7qK1xXabJGRVexRhcKvKr97u2uZg1u63nTT1tjfnsi8okMLLY1IOIX9GtZQgYV4UtsEhHnZlv_XBgW2Ery18d6NeetCpP3Ccbr5VItuuaEMX38rOBAPIuT89LNqHB2qjJY6YKospvGO0p_frgWbuwFrb-kwBbIGuLoDpjSA2nvpfC7i4Ab_jRFgn140wBR6CBKY3JMTWbpRd-d0k6xFwAUWcURtHMXXf_M_z0zrrOPrkuISpjD9WGx5TkYbdnE4Zx2nRMVyr3atqvG3EMJfXIDr2d5jNQV1qK4ASw\")",
+      "Bash(npx payload migrate:create:*)",
+      "Bash(pnpm exec payload migrate:create:*)"
     ]
   }
 }
