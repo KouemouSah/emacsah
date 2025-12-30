@@ -1,4 +1,6 @@
 /* THIS FILE WAS GENERATED AUTOMATICALLY BY PAYLOAD. */
+import type { ServerFunctionClient } from 'payload'
+
 import config from '@payload-config'
 import { RootLayout } from '@payloadcms/next/layouts'
 import React from 'react'
@@ -10,8 +12,14 @@ type Args = {
   children: React.ReactNode
 }
 
+const serverFunction: ServerFunctionClient = async function (args) {
+  'use server'
+  const { runJobs } = await import('payload')
+  return runJobs(args)
+}
+
 const Layout = ({ children }: Args) => (
-  <RootLayout config={config} importMap={importMap}>
+  <RootLayout config={config} importMap={importMap} serverFunction={serverFunction}>
     {children}
   </RootLayout>
 )
