@@ -1,4 +1,4 @@
-/* Custom Payload Admin Styles - Two Column Login */
+/* Custom Payload Admin Styles - Clean NPM-inspired Design */
 
 @layer payload {
   /* ============================================
@@ -7,47 +7,44 @@
   :root {
     --brand-primary: #2dd4bf;
     --brand-hover: #14b8a6;
-    --surface-dark: #0f172a;
-    --surface-card: rgba(255, 255, 255, 0.97);
+    --surface-bg: #0f172a;
+    --surface-card: #ffffff;
     --text-primary: #1e293b;
     --text-secondary: #64748b;
     --text-muted: #94a3b8;
-    --border-color: rgba(0, 0, 0, 0.08);
+    --border-color: #e2e8f0;
+    --border-hover: #cbd5e1;
+    --error-color: #ef4444;
     --transition: all 0.2s ease;
   }
 
   /* ============================================
-     Full Page Background - Bleu Nuit
+     Page Background - Bleu Nuit
      ============================================ */
   .template-minimal,
   .login,
   .create-first-user {
-    position: relative;
     min-height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--surface-dark);
+    background: var(--surface-bg);
     padding: 20px;
     box-sizing: border-box;
   }
 
   /* ============================================
-     Card Container - Centered Two Columns
+     Card Container - Centered
      ============================================ */
   .template-minimal__wrap {
-    position: relative;
-    z-index: 10;
     width: 100%;
-    max-width: 750px;
-    min-height: 400px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    max-width: 480px;
     background: var(--surface-card);
-    border-radius: 8px;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
-    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.12);
+    padding: 40px;
+    box-sizing: border-box;
   }
 
   /* Hide default branding */
@@ -58,119 +55,70 @@
   }
 
   /* ============================================
-     Form Reorganization with CSS Grid
+     Title
      ============================================ */
-  .template-minimal__wrap > *:not(style) {
-    display: contents;
-  }
-
-  .template-minimal form,
-  .login form,
-  .create-first-user form {
-    display: contents;
-  }
-
-  /* ============================================
-     Left Column - Credentials
-     ============================================ */
-  /* Email field - 1st in left column */
-  .field-type.email,
-  .field-type:has(input[type="email"]),
-  .template-minimal form > .field-type:nth-child(1) {
-    grid-column: 1;
-    grid-row: 1;
-    padding: 40px 35px 10px 35px;
-    margin: 0 !important;
-    border-right: 1px solid var(--border-color);
-  }
-
-  /* Password field - 2nd in left column */
-  .field-type:has(input[type="password"]):nth-of-type(1),
-  .template-minimal form > .field-type:nth-child(2) {
-    grid-column: 1;
-    grid-row: 2;
-    padding: 10px 35px;
-    margin: 0 !important;
-    border-right: 1px solid var(--border-color);
-  }
-
-  /* Confirm Password field - 3rd in left column */
-  .field-type:has(input[type="password"]):nth-of-type(2),
-  .template-minimal form > .field-type:nth-child(3) {
-    grid-column: 1;
-    grid-row: 3;
-    padding: 10px 35px 40px 35px;
-    margin: 0 !important;
-    border-right: 1px solid var(--border-color);
-  }
-
-  /* ============================================
-     Right Column - Profile Info
-     ============================================ */
-  /* Title - appears at top right */
   .template-minimal h1,
   .login h1,
   .create-first-user h1 {
-    grid-column: 2;
-    grid-row: 1;
-    padding: 40px 35px 5px 35px;
-    margin: 0 !important;
-    font-size: 1.4rem !important;
+    font-size: 1.5rem !important;
     font-weight: 400 !important;
     color: var(--text-primary) !important;
+    margin: 0 0 8px 0 !important;
+    padding: 0 !important;
     background: none !important;
     -webkit-text-fill-color: var(--text-primary) !important;
   }
 
-  /* Description text */
+  /* Subtitle */
   .template-minimal p,
   .login p,
   .create-first-user p {
-    display: none !important;
-  }
-
-  /* Name field - in right column */
-  .field-type.text,
-  .field-type:has(input[type="text"]),
-  .template-minimal form > .field-type:nth-child(4) {
-    grid-column: 2;
-    grid-row: 2;
-    padding: 10px 35px;
-    margin: 0 !important;
-  }
-
-  /* Role field - in right column */
-  .field-type.select,
-  .field-type:has(.rs__control),
-  .template-minimal form > .field-type:nth-child(5) {
-    grid-column: 2;
-    grid-row: 3;
-    padding: 10px 35px;
-    margin: 0 !important;
-  }
-
-  /* Submit button - bottom right */
-  .form-submit {
-    grid-column: 2;
-    grid-row: 4;
-    padding: 15px 35px 40px 35px;
-    margin: 0 !important;
+    font-size: 14px !important;
+    color: var(--text-secondary) !important;
+    margin: 0 0 30px 0 !important;
+    padding: 0 !important;
+    line-height: 1.5 !important;
   }
 
   /* ============================================
-     Typography
+     Form Layout
+     ============================================ */
+  .template-minimal form,
+  .login form,
+  .create-first-user form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* ============================================
+     Field Container
+     ============================================ */
+  .field-type {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* ============================================
+     Labels
      ============================================ */
   label.field-label:not(.unstyled) {
-    display: block;
-    font-size: 13px !important;
+    display: block !important;
+    font-size: 14px !important;
     font-weight: 600 !important;
     color: var(--text-primary) !important;
-    margin-bottom: 8px !important;
-    padding-bottom: 0 !important;
+    margin-bottom: 10px !important;
+    padding: 0 !important;
+  }
+
+  /* Required asterisk */
+  .field-label .required {
+    color: var(--error-color) !important;
+    margin-left: 2px !important;
   }
 
   /* ============================================
-     Input Styling
+     Inputs
      ============================================ */
   input[type="text"],
   input[type="email"],
@@ -179,64 +127,73 @@
   textarea,
   .text-input {
     width: 100% !important;
-    height: 44px !important;
-    padding: 0 14px !important;
-    font-size: 14px !important;
-    background: white !important;
-    border: 1px solid #e2e8f0 !important;
+    height: 48px !important;
+    padding: 0 16px !important;
+    font-size: 15px !important;
+    font-family: inherit !important;
+    background: var(--surface-card) !important;
+    border: 1px solid var(--border-color) !important;
     border-radius: 4px !important;
     color: var(--text-primary) !important;
     transition: var(--transition) !important;
     box-shadow: none !important;
+    box-sizing: border-box !important;
 
     &::placeholder {
       color: var(--text-muted) !important;
     }
 
     &:hover {
-      border-color: #cbd5e1 !important;
+      border-color: var(--border-hover) !important;
     }
 
     &:focus {
       outline: none !important;
       border-color: var(--brand-primary) !important;
-      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.15) !important;
+      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.12) !important;
     }
   }
 
   /* ============================================
-     Select Styling
+     Select (Role dropdown)
      ============================================ */
   .rs__control,
   .select__control {
-    min-height: 44px !important;
-    background: white !important;
-    border: 1px solid #e2e8f0 !important;
+    min-height: 48px !important;
+    background: var(--surface-card) !important;
+    border: 1px solid var(--border-color) !important;
     border-radius: 4px !important;
     box-shadow: none !important;
+    cursor: pointer !important;
 
     &:hover {
-      border-color: #cbd5e1 !important;
+      border-color: var(--border-hover) !important;
     }
 
     &--is-focused {
       border-color: var(--brand-primary) !important;
-      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.15) !important;
+      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.12) !important;
     }
   }
 
   .rs__value-container {
-    padding: 0 14px !important;
+    padding: 0 16px !important;
   }
 
   .rs__single-value,
   .select__single-value {
     color: var(--text-primary) !important;
-    font-size: 14px !important;
+    font-size: 15px !important;
+    margin: 0 !important;
+  }
+
+  .rs__placeholder {
+    color: var(--text-muted) !important;
+    font-size: 15px !important;
   }
 
   .rs__indicator {
-    padding: 8px !important;
+    padding: 12px !important;
     color: var(--text-secondary) !important;
   }
 
@@ -246,18 +203,24 @@
 
   .rs__menu,
   .select__menu {
-    background: white !important;
-    border: 1px solid #e2e8f0 !important;
+    background: var(--surface-card) !important;
+    border: 1px solid var(--border-color) !important;
     border-radius: 4px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
     margin-top: 4px !important;
+    overflow: hidden !important;
+    z-index: 100 !important;
+  }
+
+  .rs__menu-list {
+    padding: 0 !important;
   }
 
   .rs__option,
   .select__option {
     color: var(--text-primary) !important;
-    padding: 10px 14px !important;
-    font-size: 14px !important;
+    padding: 12px 16px !important;
+    font-size: 15px !important;
     cursor: pointer !important;
 
     &--is-focused {
@@ -271,16 +234,21 @@
   }
 
   /* ============================================
-     Button Styling
+     Submit Button
      ============================================ */
+  .form-submit {
+    margin-top: 10px !important;
+    padding: 0 !important;
+  }
+
   .btn {
-    height: 44px !important;
+    height: 48px !important;
     padding: 0 24px !important;
-    font-size: 14px !important;
+    font-size: 15px !important;
     font-weight: 500 !important;
+    font-family: inherit !important;
     border-radius: 4px !important;
     transition: var(--transition) !important;
-    margin: 0 !important;
     cursor: pointer !important;
   }
 
@@ -301,25 +269,54 @@
   }
 
   /* ============================================
+     Error Messages
+     ============================================ */
+  .field-error,
+  .error {
+    color: var(--error-color) !important;
+    font-size: 13px !important;
+    margin-top: 8px !important;
+  }
+
+  /* ============================================
      Links
      ============================================ */
   a {
-    color: #ef4444 !important;
+    color: var(--brand-primary) !important;
     text-decoration: none !important;
-    font-size: 13px !important;
+    font-size: 14px !important;
+    transition: var(--transition) !important;
 
     &:hover {
+      color: var(--brand-hover) !important;
       text-decoration: underline !important;
     }
   }
 
   /* ============================================
-     Error Messages
+     Checkbox
      ============================================ */
-  .field-error {
-    color: #ef4444 !important;
-    font-size: 12px !important;
-    margin-top: 4px !important;
+  .checkbox-input {
+    margin-top: 5px !important;
+  }
+
+  .checkbox-input__input {
+    width: 18px !important;
+    height: 18px !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 3px !important;
+    cursor: pointer !important;
+
+    &:checked {
+      background: var(--brand-primary) !important;
+      border-color: var(--brand-primary) !important;
+    }
+  }
+
+  .checkbox-input label.field-label {
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    color: var(--text-secondary) !important;
   }
 
   /* ============================================
@@ -368,18 +365,18 @@
   }
 
   .card {
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     border: 1px solid var(--theme-elevation-100) !important;
     background: var(--theme-elevation-0) !important;
   }
 
   .table {
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     border: 1px solid var(--theme-elevation-100) !important;
   }
 
   .popup__content {
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     background: var(--theme-elevation-0) !important;
     border: 1px solid var(--theme-elevation-100) !important;
   }
@@ -387,66 +384,25 @@
   /* ============================================
      Responsive
      ============================================ */
-  @media (max-width: 768px) {
+  @media (max-width: 540px) {
     .template-minimal__wrap {
-      grid-template-columns: 1fr;
-      max-width: 400px;
-    }
-
-    /* Stack all fields in single column */
-    .field-type.email,
-    .field-type:has(input[type="email"]),
-    .template-minimal form > .field-type:nth-child(1),
-    .field-type:has(input[type="password"]):nth-of-type(1),
-    .template-minimal form > .field-type:nth-child(2),
-    .field-type:has(input[type="password"]):nth-of-type(2),
-    .template-minimal form > .field-type:nth-child(3),
-    .field-type.text,
-    .field-type:has(input[type="text"]),
-    .template-minimal form > .field-type:nth-child(4),
-    .field-type.select,
-    .field-type:has(.rs__control),
-    .template-minimal form > .field-type:nth-child(5),
-    .form-submit {
-      grid-column: 1;
-      border-right: none;
-      padding-left: 25px !important;
-      padding-right: 25px !important;
-    }
-
-    .template-minimal form > .field-type:nth-child(1) {
-      grid-row: 2;
-      padding-top: 15px !important;
-    }
-
-    .template-minimal form > .field-type:nth-child(2) {
-      grid-row: 3;
-    }
-
-    .template-minimal form > .field-type:nth-child(3) {
-      grid-row: 4;
-    }
-
-    .template-minimal form > .field-type:nth-child(4) {
-      grid-row: 5;
-    }
-
-    .template-minimal form > .field-type:nth-child(5) {
-      grid-row: 6;
-    }
-
-    .form-submit {
-      grid-row: 7;
-      padding-bottom: 25px !important;
+      padding: 30px 24px;
+      margin: 10px;
     }
 
     .template-minimal h1,
     .login h1,
     .create-first-user h1 {
-      grid-column: 1;
-      grid-row: 1;
-      padding: 25px 25px 10px 25px;
-      text-align: center;
+      font-size: 1.3rem !important;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    .rs__control,
+    .btn {
+      height: 44px !important;
+      font-size: 14px !important;
     }
   }
 
@@ -456,7 +412,7 @@
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(8px);
     }
     to {
       opacity: 1;
@@ -465,6 +421,6 @@
   }
 
   .template-minimal__wrap {
-    animation: fadeIn 0.4s ease-out;
+    animation: fadeIn 0.35s ease-out;
   }
 }
