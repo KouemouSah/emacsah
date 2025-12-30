@@ -1,85 +1,53 @@
-/* Custom Payload Admin Styles - Neural Network Background */
+/* Custom Payload Admin Styles - Two Column Login */
 
 @layer payload {
   /* ============================================
      CSS Variables
      ============================================ */
   :root {
-    --brand-primary: #3b82f6;
-    --brand-secondary: #1e40af;
-    --brand-accent: #06b6d4;
-    --surface-dark: #0a0f1a;
-    --surface-card: rgba(255, 255, 255, 0.95);
+    --brand-primary: #2dd4bf;
+    --brand-hover: #14b8a6;
+    --surface-dark: #0f172a;
+    --surface-card: rgba(255, 255, 255, 0.97);
     --text-primary: #1e293b;
-    --text-secondary: #475569;
-    --text-muted: #64748b;
-    --transition: all 0.25s ease;
+    --text-secondary: #64748b;
+    --text-muted: #94a3b8;
+    --border-color: rgba(0, 0, 0, 0.08);
+    --transition: all 0.2s ease;
   }
 
   /* ============================================
-     Full Page Background
+     Full Page Background - Bleu Nuit
      ============================================ */
   .template-minimal,
   .login,
   .create-first-user {
     position: relative;
     min-height: 100vh;
-    height: 100vh;
     width: 100%;
     display: flex;
-    align-items: stretch;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
     background: var(--surface-dark);
-    overflow: hidden;
-  }
-
-  /* Gradient overlay */
-  .template-minimal::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 25% 40%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse 60% 80% at 75% 80%, rgba(6, 182, 212, 0.12) 0%, transparent 50%),
-      radial-gradient(ellipse 50% 50% at 50% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 60%);
-    z-index: 0;
-  }
-
-  /* Neural Network SVG - Simplified (no robots) */
-  .template-minimal::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cdefs%3E%3CradialGradient id='g1' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%233b82f6' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='%233b82f6' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='g2' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%2306b6d4' stop-opacity='0.7'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Cg opacity='0.2'%3E%3Cline x1='80' y1='120' x2='200' y2='200' stroke='%233b82f6' stroke-width='1.5'/%3E%3Cline x1='200' y1='200' x2='350' y2='150' stroke='%233b82f6' stroke-width='1.5'/%3E%3Cline x1='200' y1='200' x2='280' y2='350' stroke='%2306b6d4' stroke-width='1.5'/%3E%3Cline x1='350' y1='150' x2='480' y2='250' stroke='%233b82f6' stroke-width='1.5'/%3E%3Cline x1='280' y1='350' x2='420' y2='320' stroke='%2306b6d4' stroke-width='1.5'/%3E%3Cline x1='480' y1='250' x2='580' y2='400' stroke='%233b82f6' stroke-width='1.5'/%3E%3Cline x1='420' y1='320' x2='580' y2='400' stroke='%2306b6d4' stroke-width='1.5'/%3E%3Cline x1='100' y1='480' x2='220' y2='560' stroke='%2306b6d4' stroke-width='1.5'/%3E%3Cline x1='220' y1='560' x2='380' y2='500' stroke='%233b82f6' stroke-width='1.5'/%3E%3Cline x1='220' y1='560' x2='300' y2='700' stroke='%2306b6d4' stroke-width='1.5'/%3E%3Cline x1='380' y1='500' x2='520' y2='600' stroke='%233b82f6' stroke-width='1.5'/%3E%3Cline x1='300' y1='700' x2='480' y2='720' stroke='%2306b6d4' stroke-width='1.5'/%3E%3Cline x1='520' y1='600' x2='600' y2='480' stroke='%233b82f6' stroke-width='1.5'/%3E%3C/g%3E%3Ccircle cx='80' cy='120' r='8' fill='%233b82f6'%3E%3Canimate attributeName='opacity' values='0.4;0.9;0.4' dur='3s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='200' cy='200' r='12' fill='%2306b6d4'%3E%3Canimate attributeName='opacity' values='0.5;1;0.5' dur='2.5s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='350' cy='150' r='8' fill='%233b82f6'%3E%3Canimate attributeName='opacity' values='0.4;0.8;0.4' dur='3.5s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='280' cy='350' r='10' fill='%2306b6d4'%3E%3Canimate attributeName='opacity' values='0.5;0.9;0.5' dur='2.8s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='480' cy='250' r='14' fill='%233b82f6'%3E%3Canimate attributeName='opacity' values='0.4;1;0.4' dur='3.2s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='420' cy='320' r='8' fill='%2306b6d4'%3E%3Canimate attributeName='opacity' values='0.5;0.8;0.5' dur='2.6s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='580' cy='400' r='11' fill='%233b82f6'%3E%3Canimate attributeName='opacity' values='0.4;0.9;0.4' dur='3s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='100' cy='480' r='9' fill='%2306b6d4'%3E%3Canimate attributeName='opacity' values='0.5;0.9;0.5' dur='2.7s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='220' cy='560' r='13' fill='%233b82f6'%3E%3Canimate attributeName='opacity' values='0.4;1;0.4' dur='3.1s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='380' cy='500' r='8' fill='%2306b6d4'%3E%3Canimate attributeName='opacity' values='0.5;0.8;0.5' dur='2.9s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='300' cy='700' r='10' fill='%233b82f6'%3E%3Canimate attributeName='opacity' values='0.4;0.9;0.4' dur='3.3s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='520' cy='600' r='9' fill='%2306b6d4'%3E%3Canimate attributeName='opacity' values='0.5;0.9;0.5' dur='2.5s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='480' cy='720' r='7' fill='%233b82f6'%3E%3Canimate attributeName='opacity' values='0.4;0.8;0.4' dur='3.4s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='200' cy='200' r='25' fill='url(%23g1)'%3E%3Canimate attributeName='r' values='20;30;20' dur='4s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='480' cy='250' r='30' fill='url(%23g1)'%3E%3Canimate attributeName='r' values='25;35;25' dur='5s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='220' cy='560' r='28' fill='url(%23g2)'%3E%3Canimate attributeName='r' values='22;32;22' dur='4.5s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='580' cy='400' r='22' fill='url(%23g2)'%3E%3Canimate attributeName='r' values='18;28;18' dur='3.8s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/svg%3E");
-    background-size: 70% auto;
-    background-position: left center;
-    background-repeat: no-repeat;
-    z-index: 1;
-    pointer-events: none;
+    padding: 20px;
+    box-sizing: border-box;
   }
 
   /* ============================================
-     Right Panel - Form Container
+     Card Container - Centered Two Columns
      ============================================ */
   .template-minimal__wrap {
     position: relative;
     z-index: 10;
-    width: 380px;
-    min-width: 320px;
-    max-width: 420px;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 24px;
-    box-sizing: border-box;
-    background: var(--surface-card);
-    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.2);
-  }
-
-  .template-minimal__wrap > *:not(style) {
     width: 100%;
-    max-width: 280px;
+    max-width: 750px;
+    min-height: 400px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--surface-card);
+    border-radius: 8px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
   }
 
   /* Hide default branding */
@@ -90,56 +58,120 @@
   }
 
   /* ============================================
-     Typography - Minimal
+     Form Reorganization with CSS Grid
      ============================================ */
+  .template-minimal__wrap > *:not(style) {
+    display: contents;
+  }
+
+  .template-minimal form,
+  .login form,
+  .create-first-user form {
+    display: contents;
+  }
+
+  /* ============================================
+     Left Column - Credentials
+     ============================================ */
+  /* Email field - 1st in left column */
+  .field-type.email,
+  .field-type:has(input[type="email"]),
+  .template-minimal form > .field-type:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 40px 35px 10px 35px;
+    margin: 0 !important;
+    border-right: 1px solid var(--border-color);
+  }
+
+  /* Password field - 2nd in left column */
+  .field-type:has(input[type="password"]):nth-of-type(1),
+  .template-minimal form > .field-type:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 10px 35px;
+    margin: 0 !important;
+    border-right: 1px solid var(--border-color);
+  }
+
+  /* Confirm Password field - 3rd in left column */
+  .field-type:has(input[type="password"]):nth-of-type(2),
+  .template-minimal form > .field-type:nth-child(3) {
+    grid-column: 1;
+    grid-row: 3;
+    padding: 10px 35px 40px 35px;
+    margin: 0 !important;
+    border-right: 1px solid var(--border-color);
+  }
+
+  /* ============================================
+     Right Column - Profile Info
+     ============================================ */
+  /* Title - appears at top right */
   .template-minimal h1,
   .login h1,
   .create-first-user h1 {
-    font-size: 1.1rem !important;
-    font-weight: 600 !important;
+    grid-column: 2;
+    grid-row: 1;
+    padding: 40px 35px 5px 35px;
+    margin: 0 !important;
+    font-size: 1.4rem !important;
+    font-weight: 400 !important;
     color: var(--text-primary) !important;
-    margin: 0 0 2px 0 !important;
-    text-align: left !important;
     background: none !important;
     -webkit-text-fill-color: var(--text-primary) !important;
   }
 
+  /* Description text */
   .template-minimal p,
   .login p,
   .create-first-user p {
-    font-size: 11px !important;
-    color: var(--text-secondary) !important;
-    margin: 0 0 10px 0 !important;
-    text-align: left !important;
-    line-height: 1.3 !important;
+    display: none !important;
   }
 
-  /* ============================================
-     Form - Super Compact
-     ============================================ */
-  .template-minimal form,
-  .login form,
-  .create-first-user form {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .field-type {
+  /* Name field - in right column */
+  .field-type.text,
+  .field-type:has(input[type="text"]),
+  .template-minimal form > .field-type:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+    padding: 10px 35px;
     margin: 0 !important;
   }
 
-  label.field-label:not(.unstyled) {
-    font-size: 9px !important;
-    font-weight: 600 !important;
-    color: var(--text-muted) !important;
-    margin-bottom: 1px !important;
-    padding-bottom: 0 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
+  /* Role field - in right column */
+  .field-type.select,
+  .field-type:has(.rs__control),
+  .template-minimal form > .field-type:nth-child(5) {
+    grid-column: 2;
+    grid-row: 3;
+    padding: 10px 35px;
+    margin: 0 !important;
   }
 
-  /* Compact inputs */
+  /* Submit button - bottom right */
+  .form-submit {
+    grid-column: 2;
+    grid-row: 4;
+    padding: 15px 35px 40px 35px;
+    margin: 0 !important;
+  }
+
+  /* ============================================
+     Typography
+     ============================================ */
+  label.field-label:not(.unstyled) {
+    display: block;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    margin-bottom: 8px !important;
+    padding-bottom: 0 !important;
+  }
+
+  /* ============================================
+     Input Styling
+     ============================================ */
   input[type="text"],
   input[type="email"],
   input[type="password"],
@@ -147,11 +179,11 @@
   textarea,
   .text-input {
     width: 100% !important;
-    height: 30px !important;
-    padding: 0 8px !important;
-    font-size: 12px !important;
-    background: rgba(0, 0, 0, 0.03) !important;
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    height: 44px !important;
+    padding: 0 14px !important;
+    font-size: 14px !important;
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
     border-radius: 4px !important;
     color: var(--text-primary) !important;
     transition: var(--transition) !important;
@@ -159,70 +191,77 @@
 
     &::placeholder {
       color: var(--text-muted) !important;
-      font-size: 11px !important;
     }
 
     &:hover {
-      border-color: rgba(0, 0, 0, 0.2) !important;
+      border-color: #cbd5e1 !important;
     }
 
     &:focus {
       outline: none !important;
       border-color: var(--brand-primary) !important;
-      background: white !important;
-      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.12) !important;
+      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.15) !important;
     }
   }
 
-  /* Select - Compact */
+  /* ============================================
+     Select Styling
+     ============================================ */
   .rs__control,
   .select__control {
-    min-height: 30px !important;
-    background: rgba(0, 0, 0, 0.03) !important;
-    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    min-height: 44px !important;
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
     border-radius: 4px !important;
+    box-shadow: none !important;
 
     &:hover {
-      border-color: rgba(0, 0, 0, 0.2) !important;
+      border-color: #cbd5e1 !important;
     }
 
     &--is-focused {
       border-color: var(--brand-primary) !important;
-      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.12) !important;
-      background: white !important;
+      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.15) !important;
     }
   }
 
   .rs__value-container {
-    padding: 0 8px !important;
+    padding: 0 14px !important;
   }
 
   .rs__single-value,
   .select__single-value {
     color: var(--text-primary) !important;
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
 
   .rs__indicator {
-    padding: 4px !important;
+    padding: 8px !important;
+    color: var(--text-secondary) !important;
+  }
+
+  .rs__indicator-separator {
+    display: none !important;
   }
 
   .rs__menu,
   .select__menu {
     background: white !important;
-    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid #e2e8f0 !important;
     border-radius: 4px !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    margin-top: 4px !important;
   }
 
   .rs__option,
   .select__option {
     color: var(--text-primary) !important;
-    padding: 6px 8px !important;
-    font-size: 12px !important;
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
 
     &--is-focused {
-      background: rgba(59, 130, 246, 0.08) !important;
+      background: #f1f5f9 !important;
     }
 
     &--is-selected {
@@ -232,84 +271,55 @@
   }
 
   /* ============================================
-     Button - Compact
+     Button Styling
      ============================================ */
   .btn {
-    height: 32px !important;
-    padding: 0 16px !important;
-    font-size: 12px !important;
+    height: 44px !important;
+    padding: 0 24px !important;
+    font-size: 14px !important;
     font-weight: 500 !important;
     border-radius: 4px !important;
     transition: var(--transition) !important;
     margin: 0 !important;
+    cursor: pointer !important;
   }
 
   .btn--style-primary {
-    background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-secondary) 100%) !important;
+    width: 100% !important;
+    background: var(--brand-primary) !important;
     border: none !important;
     color: white !important;
-    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25) !important;
+    box-shadow: none !important;
 
     &:hover {
-      transform: translateY(-1px) !important;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35) !important;
+      background: var(--brand-hover) !important;
     }
 
     &:active {
-      transform: translateY(0) !important;
+      transform: scale(0.98) !important;
     }
-  }
-
-  .form-submit {
-    margin-top: 6px !important;
-
-    .btn {
-      width: 100% !important;
-    }
-  }
-
-  /* ============================================
-     Checkbox - Small
-     ============================================ */
-  .checkbox-input__input {
-    width: 14px !important;
-    height: 14px !important;
-    background: rgba(0, 0, 0, 0.03) !important;
-    border: 1px solid rgba(0, 0, 0, 0.15) !important;
-    border-radius: 3px !important;
-  }
-
-  .checkbox-input label.field-label {
-    font-size: 10px !important;
   }
 
   /* ============================================
      Links
      ============================================ */
   a {
-    color: var(--brand-primary) !important;
+    color: #ef4444 !important;
     text-decoration: none !important;
-    font-size: 11px !important;
+    font-size: 13px !important;
 
     &:hover {
-      color: var(--brand-secondary) !important;
+      text-decoration: underline !important;
     }
   }
 
   /* ============================================
-     Branding Footer
+     Error Messages
      ============================================ */
-  .template-minimal__wrap::after {
-    content: 'AI POWERED';
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 8px;
-    color: var(--text-muted);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    opacity: 0.4;
+  .field-error {
+    color: #ef4444 !important;
+    font-size: 12px !important;
+    margin-top: 4px !important;
   }
 
   /* ============================================
@@ -347,7 +357,7 @@
     }
 
     &.active {
-      background: rgba(59, 130, 246, 0.15) !important;
+      background: rgba(45, 212, 191, 0.15) !important;
       color: var(--brand-primary) !important;
     }
   }
@@ -377,73 +387,66 @@
   /* ============================================
      Responsive
      ============================================ */
-  @media (max-width: 900px) {
-    .template-minimal::after {
-      background-size: 90% auto;
-      background-position: 5% center;
-    }
-
-    .template-minimal__wrap {
-      width: 360px;
-      min-width: 300px;
-    }
-  }
-
   @media (max-width: 768px) {
-    .template-minimal,
-    .login,
-    .create-first-user {
-      flex-direction: column;
-      justify-content: flex-end;
-    }
-
-    .template-minimal::after {
-      background-size: 120% auto;
-      background-position: center 30%;
-      opacity: 0.7;
-    }
-
     .template-minimal__wrap {
-      width: 100%;
-      min-width: auto;
-      max-width: none;
-      height: auto;
-      min-height: auto;
-      padding: 20px 24px 28px;
-      border-radius: 16px 16px 0 0;
-      box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.2);
+      grid-template-columns: 1fr;
+      max-width: 400px;
     }
 
-    .template-minimal__wrap > *:not(style) {
-      max-width: 320px;
-      margin: 0 auto;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .template-minimal__wrap {
-      padding: 16px 20px 24px;
-    }
-
-    .template-minimal__wrap > *:not(style) {
-      max-width: 100%;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"] {
-      height: 36px !important;
-      font-size: 14px !important;
-    }
-
-    .rs__control,
-    .select__control {
-      min-height: 36px !important;
+    /* Stack all fields in single column */
+    .field-type.email,
+    .field-type:has(input[type="email"]),
+    .template-minimal form > .field-type:nth-child(1),
+    .field-type:has(input[type="password"]):nth-of-type(1),
+    .template-minimal form > .field-type:nth-child(2),
+    .field-type:has(input[type="password"]):nth-of-type(2),
+    .template-minimal form > .field-type:nth-child(3),
+    .field-type.text,
+    .field-type:has(input[type="text"]),
+    .template-minimal form > .field-type:nth-child(4),
+    .field-type.select,
+    .field-type:has(.rs__control),
+    .template-minimal form > .field-type:nth-child(5),
+    .form-submit {
+      grid-column: 1;
+      border-right: none;
+      padding-left: 25px !important;
+      padding-right: 25px !important;
     }
 
-    .btn {
-      height: 38px !important;
-      font-size: 14px !important;
+    .template-minimal form > .field-type:nth-child(1) {
+      grid-row: 2;
+      padding-top: 15px !important;
+    }
+
+    .template-minimal form > .field-type:nth-child(2) {
+      grid-row: 3;
+    }
+
+    .template-minimal form > .field-type:nth-child(3) {
+      grid-row: 4;
+    }
+
+    .template-minimal form > .field-type:nth-child(4) {
+      grid-row: 5;
+    }
+
+    .template-minimal form > .field-type:nth-child(5) {
+      grid-row: 6;
+    }
+
+    .form-submit {
+      grid-row: 7;
+      padding-bottom: 25px !important;
+    }
+
+    .template-minimal h1,
+    .login h1,
+    .create-first-user h1 {
+      grid-column: 1;
+      grid-row: 1;
+      padding: 25px 25px 10px 25px;
+      text-align: center;
     }
   }
 
@@ -453,15 +456,15 @@
   @keyframes fadeIn {
     from {
       opacity: 0;
-      transform: translateX(10px);
+      transform: translateY(10px);
     }
     to {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
     }
   }
 
-  .template-minimal__wrap > *:not(style) {
+  .template-minimal__wrap {
     animation: fadeIn 0.4s ease-out;
   }
 }
