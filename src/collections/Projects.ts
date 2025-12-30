@@ -213,49 +213,207 @@ export const Projects: CollectionConfig = {
         {
           label: 'Impact',
           fields: [
+            // Impact Sociétal Block
             {
-              name: 'societal_impact_fr',
-              type: 'richText',
-              label: 'Impact sociétal (FR)',
-            },
-            {
-              name: 'societal_impact_en',
-              type: 'richText',
-              label: 'Impact sociétal (EN)',
-            },
-            {
-              name: 'environmental_impact_fr',
-              type: 'richText',
-              label: 'Impact environnemental (FR)',
-            },
-            {
-              name: 'environmental_impact_en',
-              type: 'richText',
-              label: 'Impact environnemental (EN)',
-            },
-            {
-              name: 'benefits',
-              type: 'array',
-              label: 'Bénéfices clés',
+              name: 'societal_impact',
+              type: 'group',
+              label: 'Impact Sociétal',
+              admin: {
+                description: 'Comment ce projet contribue-t-il à la société ?',
+              },
               fields: [
                 {
-                  name: 'metric',
+                  name: 'enabled',
+                  type: 'checkbox',
+                  label: 'Afficher cette section',
+                  defaultValue: false,
+                },
+                {
+                  name: 'title_fr',
                   type: 'text',
-                  label: 'Métrique',
-                  required: true,
-                  admin: {
-                    description: 'Ex: +50% efficacité, -30% coûts, 10k utilisateurs',
-                  },
+                  label: 'Titre (FR)',
+                  defaultValue: 'Impact Sociétal',
+                },
+                {
+                  name: 'title_en',
+                  type: 'text',
+                  label: 'Titre (EN)',
+                  defaultValue: 'Societal Impact',
                 },
                 {
                   name: 'description_fr',
-                  type: 'text',
+                  type: 'richText',
                   label: 'Description (FR)',
                 },
                 {
                   name: 'description_en',
-                  type: 'text',
+                  type: 'richText',
                   label: 'Description (EN)',
+                },
+                {
+                  name: 'icon',
+                  type: 'select',
+                  label: 'Icône',
+                  defaultValue: 'users',
+                  options: [
+                    { label: 'Utilisateurs', value: 'users' },
+                    { label: 'Globe', value: 'globe' },
+                    { label: 'Coeur', value: 'heart' },
+                    { label: 'Étoile', value: 'star' },
+                  ],
+                },
+              ],
+            },
+
+            // Impact Environnemental Block
+            {
+              name: 'environmental_impact',
+              type: 'group',
+              label: 'Impact Environnemental',
+              admin: {
+                description: 'Contribution écologique du projet',
+              },
+              fields: [
+                {
+                  name: 'enabled',
+                  type: 'checkbox',
+                  label: 'Afficher cette section',
+                  defaultValue: false,
+                },
+                {
+                  name: 'title_fr',
+                  type: 'text',
+                  label: 'Titre (FR)',
+                  defaultValue: 'Impact Environnemental',
+                },
+                {
+                  name: 'title_en',
+                  type: 'text',
+                  label: 'Titre (EN)',
+                  defaultValue: 'Environmental Impact',
+                },
+                {
+                  name: 'description_fr',
+                  type: 'richText',
+                  label: 'Description (FR)',
+                },
+                {
+                  name: 'description_en',
+                  type: 'richText',
+                  label: 'Description (EN)',
+                },
+                {
+                  name: 'icon',
+                  type: 'select',
+                  label: 'Icône',
+                  defaultValue: 'leaf',
+                  options: [
+                    { label: 'Feuille', value: 'leaf' },
+                    { label: 'Terre', value: 'earth' },
+                    { label: 'Recyclage', value: 'recycle' },
+                    { label: 'Soleil', value: 'sun' },
+                  ],
+                },
+              ],
+            },
+
+            // Impact Économique Block
+            {
+              name: 'economic_impact',
+              type: 'group',
+              label: 'Impact Économique',
+              admin: {
+                description: 'Bénéfices économiques et ROI',
+              },
+              fields: [
+                {
+                  name: 'enabled',
+                  type: 'checkbox',
+                  label: 'Afficher cette section',
+                  defaultValue: false,
+                },
+                {
+                  name: 'title_fr',
+                  type: 'text',
+                  label: 'Titre (FR)',
+                  defaultValue: 'Impact Économique',
+                },
+                {
+                  name: 'title_en',
+                  type: 'text',
+                  label: 'Titre (EN)',
+                  defaultValue: 'Economic Impact',
+                },
+                {
+                  name: 'description_fr',
+                  type: 'richText',
+                  label: 'Description (FR)',
+                },
+                {
+                  name: 'description_en',
+                  type: 'richText',
+                  label: 'Description (EN)',
+                },
+                {
+                  name: 'icon',
+                  type: 'select',
+                  label: 'Icône',
+                  defaultValue: 'trending-up',
+                  options: [
+                    { label: 'Croissance', value: 'trending-up' },
+                    { label: 'Dollar', value: 'dollar' },
+                    { label: 'Graphique', value: 'chart' },
+                    { label: 'Cible', value: 'target' },
+                  ],
+                },
+              ],
+            },
+
+            // Métriques clés
+            {
+              name: 'key_metrics',
+              type: 'array',
+              label: 'Métriques clés',
+              admin: {
+                description: 'Chiffres impactants (affiché en grille sur le frontend)',
+              },
+              fields: [
+                {
+                  name: 'value',
+                  type: 'text',
+                  label: 'Valeur',
+                  required: true,
+                  admin: {
+                    description: 'Ex: +50%, 10k, 99.9%',
+                    width: '30%',
+                  },
+                },
+                {
+                  name: 'label_fr',
+                  type: 'text',
+                  label: 'Label (FR)',
+                  required: true,
+                  admin: { width: '35%' },
+                },
+                {
+                  name: 'label_en',
+                  type: 'text',
+                  label: 'Label (EN)',
+                  admin: { width: '35%' },
+                },
+                {
+                  name: 'icon',
+                  type: 'select',
+                  label: 'Icône',
+                  options: [
+                    { label: 'Aucune', value: '' },
+                    { label: 'Croissance', value: 'trending-up' },
+                    { label: 'Utilisateurs', value: 'users' },
+                    { label: 'Temps', value: 'clock' },
+                    { label: 'Performance', value: 'zap' },
+                    { label: 'Sécurité', value: 'shield' },
+                    { label: 'Économie', value: 'dollar' },
+                  ],
                 },
               ],
             },
