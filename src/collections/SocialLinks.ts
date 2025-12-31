@@ -4,6 +4,7 @@ export const SocialLinks: CollectionConfig = {
   slug: 'social-links',
   admin: {
     useAsTitle: 'platform',
+    group: 'Profil',
   },
   fields: [
     {

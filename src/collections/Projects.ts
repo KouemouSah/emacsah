@@ -2,6 +2,10 @@ import type { CollectionConfig } from 'payload'
 
 export const Projects: CollectionConfig = {
   slug: 'projects',
+  labels: {
+    singular: 'Projet',
+    plural: 'Projets',
+  },
   admin: {
     useAsTitle: 'title_fr',
     defaultColumns: ['title_fr', 'status', 'featured', 'domain', 'order'],

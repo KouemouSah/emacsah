@@ -4,6 +4,7 @@ export const Experiences: CollectionConfig = {
   slug: 'experiences',
   admin: {
     useAsTitle: 'title',
+    group: 'Profil',
   },
   fields: [
     { name: 'title', type: 'text', required: true },

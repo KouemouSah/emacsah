@@ -4,6 +4,7 @@ export const Bio: CollectionConfig = {
   slug: 'bio',
   admin: {
     useAsTitle: 'title',
+    group: 'Profil',
   },
   fields: [
     { name: 'title', type: 'text', required: true },
