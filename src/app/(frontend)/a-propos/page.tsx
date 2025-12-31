@@ -2,6 +2,8 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import Image from 'next/image'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'À propos',
   description: 'En savoir plus sur mon parcours et mes compétences',

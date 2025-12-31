@@ -3,6 +3,8 @@ import config from '@payload-config'
 import Link from 'next/link'
 import Image from 'next/image'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata = {
   title: 'Blog',
   description: 'Articles et réflexions sur le développement, la data et l\'IA',
