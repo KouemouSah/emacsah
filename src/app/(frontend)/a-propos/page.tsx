@@ -230,7 +230,7 @@ export default async function AboutPage() {
             Intéressé par une collaboration ?
           </h2>
           <p className="text-amber-100 mb-8">
-            N'hésitez pas à me contacter pour discuter de vos projets.
+            N&apos;hésitez pas à me contacter pour discuter de vos projets.
           </p>
           <a
             href="/contact"

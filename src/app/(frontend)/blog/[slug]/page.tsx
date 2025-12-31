@@ -146,7 +146,7 @@ export default async function ArticlePage({ params }: Props) {
                 ) : (
                   <div className="rich-text-content">
                     {/* Lexical content would be rendered here */}
-                    <p className="text-slate-600">Contenu de l'article...</p>
+                    <p className="text-slate-600">Contenu de l&apos;article...</p>
                   </div>
                 )}
               </div>

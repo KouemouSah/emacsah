@@ -34,7 +34,7 @@ export default async function BlogPage() {
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl">
             Articles, tutoriels et réflexions sur le développement web,
-            la data science et l'intelligence artificielle.
+            la data science et l&apos;intelligence artificielle.
           </p>
         </div>
       </section>

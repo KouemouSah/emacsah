@@ -52,7 +52,7 @@ export default function ContactPage() {
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             Une question, une proposition de collaboration ou simplement envie de discuter ?
-            N'hésitez pas à me contacter.
+            N&apos;hésitez pas à me contacter.
           </p>
         </div>
       </section>
