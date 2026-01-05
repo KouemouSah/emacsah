@@ -38,7 +38,11 @@
       "Bash(pnpm type-check:*)",
       "Bash(npx tsc:*)",
       "Bash(pnpm exec tsc:*)",
-      "Bash(pnpm build:*)"
+      "Bash(pnpm build:*)",
+      "Bash(wc:*)",
+      "Bash(find:*)",
+      "Bash(git log:*)",
+      "Bash(git restore:*)"
     ]
   }
 }
