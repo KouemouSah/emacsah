@@ -14,29 +14,39 @@ export const metadata: Metadata = {
 async function getData() {
   const payload = await getPayload({ config })
 
-  const [projects, articles, bio] = await Promise.all([
+  // Fetch projects and articles first (these should work)
+  const [projects, articles] = await Promise.all([
     payload.find({
       collection: 'projects',
       where: { status: { equals: 'published' } },
       sort: '-featured,-order',
       limit: 6,
-    }),
+    }).catch(() => ({ docs: [] })),
     payload.find({
       collection: 'articles',
       where: { status: { equals: 'published' } },
       sort: '-publishedAt',
       limit: 3,
-    }),
-    payload.find({
+    }).catch(() => ({ docs: [] })),
+  ])
+
+  // Bio might fail if schema not yet pushed, handle gracefully
+  let bio = null
+  try {
+    const bioResult = await payload.find({
       collection: 'bio',
       limit: 1,
-    }),
-  ])
+    })
+    bio = bioResult.docs[0] || null
+  } catch {
+    // Schema might not be ready yet, continue without bio
+    bio = null
+  }
 
   return {
     featuredProjects: projects.docs,
     recentArticles: articles.docs,
-    bio: bio.docs[0] || null,
+    bio,
   }
 }
 
