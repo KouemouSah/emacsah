@@ -11,16 +11,21 @@ export const metadata = {
 }
 
 async function getProjects() {
-  const payload = await getPayload({ config })
-  const projects = await payload.find({
-    collection: 'projects',
-    where: {
-      status: { equals: 'published' },
-    },
-    sort: '-featured,order',
-    limit: 50,
-  })
-  return projects.docs
+  try {
+    const payload = await getPayload({ config })
+    const projects = await payload.find({
+      collection: 'projects',
+      where: {
+        status: { equals: 'published' },
+      },
+      sort: '-featured,order',
+      limit: 50,
+    })
+    return projects.docs
+  } catch {
+    // Database schema might not be ready, return empty array
+    return []
+  }
 }
 
 export default async function ProjectsPage() {

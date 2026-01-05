@@ -11,16 +11,20 @@ export const metadata = {
 }
 
 async function getArticles() {
-  const payload = await getPayload({ config })
-  const articles = await payload.find({
-    collection: 'articles',
-    where: {
-      status: { equals: 'published' },
-    },
-    sort: '-publishedAt',
-    limit: 50,
-  })
-  return articles.docs
+  try {
+    const payload = await getPayload({ config })
+    const articles = await payload.find({
+      collection: 'articles',
+      where: {
+        status: { equals: 'published' },
+      },
+      sort: '-publishedAt',
+      limit: 50,
+    })
+    return articles.docs
+  } catch {
+    return []
+  }
 }
 
 export default async function BlogPage() {
