@@ -131,16 +131,10 @@ export const Articles: CollectionConfig = {
             },
             {
               name: 'tags',
-              type: 'array',
+              type: 'relationship',
               label: 'Tags',
-              fields: [
-                {
-                  name: 'tag',
-                  type: 'text',
-                  label: 'Tag',
-                  required: true,
-                },
-              ],
+              relationTo: 'tags',
+              hasMany: true,
             },
           ],
         },

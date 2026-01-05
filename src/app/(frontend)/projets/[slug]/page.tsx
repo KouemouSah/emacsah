@@ -7,19 +7,17 @@ import { Metadata } from 'next'
 
 export const dynamic = 'force-dynamic'
 
-// Composant pour afficher le contenu rich text de Payload
+// Composant pour afficher le contenu rich text de Payload (Lexical)
 function RichTextContent({ content }: { content: any }) {
   if (!content) return null
 
-  // Si c'est une string simple
   if (typeof content === 'string') {
     return <p>{content}</p>
   }
 
-  // Payload 3.0 utilise Lexical par défaut - format JSON
   if (content.root?.children) {
     return (
-      <div>
+      <div className="prose prose-slate max-w-none">
         {content.root.children.map((node: any, index: number) => {
           if (node.type === 'paragraph') {
             const text = node.children?.map((child: any) => child.text || '').join('') || ''
@@ -120,9 +118,11 @@ export default async function ProjectPage({ params }: Props) {
           </Link>
 
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
-              {project.domain}
-            </span>
+            {project.domain && (
+              <span className="text-sm font-medium text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                {project.domain}
+              </span>
+            )}
             {project.featured && (
               <span className="text-sm font-medium text-amber-600 bg-amber-50 px-3 py-1 rounded-full">
                 Featured
@@ -138,31 +138,25 @@ export default async function ProjectPage({ params }: Props) {
             {project.summary_fr}
           </p>
 
-          {/* Duration & Client */}
-          <div className="flex flex-wrap gap-6 mt-8 text-sm text-slate-500">
-            {project.start_date && (
-              <div>
-                <span className="font-medium text-slate-700">Période:</span>{' '}
-                {new Date(project.start_date).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}
-                {project.end_date && ` - ${new Date(project.end_date).toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' })}`}
-              </div>
-            )}
-            {project.client && (
-              <div>
-                <span className="font-medium text-slate-700">Client:</span> {project.client}
-              </div>
-            )}
-          </div>
+          {project.publishedAt && (
+            <p className="text-sm text-slate-500 mt-6">
+              Publié le {new Date(project.publishedAt).toLocaleDateString('fr-FR', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric',
+              })}
+            </p>
+          )}
         </div>
       </section>
 
       {/* Featured Image */}
-      {project.featuredImage && (
+      {project.featuredImage && typeof project.featuredImage === 'object' && project.featuredImage.url && (
         <section className="py-8">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <div className="aspect-video relative rounded-2xl overflow-hidden shadow-xl">
               <Image
-                src={typeof project.featuredImage === 'object' ? project.featuredImage.url || '' : ''}
+                src={project.featuredImage.url}
                 alt={project.title_fr}
                 fill
                 className="object-cover"
@@ -176,51 +170,175 @@ export default async function ProjectPage({ params }: Props) {
       {/* Main Content */}
       <section className="py-12">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          {/* Context */}
-          {project.context_fr && (
+          {/* Description */}
+          {project.description_fr && (
             <div className="mb-12">
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">Contexte</h2>
-              <div className="prose prose-slate max-w-none">
-                <RichTextContent content={project.context_fr} />
+              <RichTextContent content={project.description_fr} />
+            </div>
+          )}
+
+          {/* Business Context */}
+          {project.business_context_fr && (
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">Contexte métier</h2>
+              <RichTextContent content={project.business_context_fr} />
+            </div>
+          )}
+
+          {/* Problem Solved */}
+          {project.problem_solved_fr && (
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">Problème résolu</h2>
+              <RichTextContent content={project.problem_solved_fr} />
+            </div>
+          )}
+
+          {/* Architecture */}
+          {project.architecture_fr && (
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">Architecture technique</h2>
+              <RichTextContent content={project.architecture_fr} />
+              {project.architecture_diagram && typeof project.architecture_diagram === 'object' && project.architecture_diagram.url && (
+                <div className="mt-6 rounded-lg overflow-hidden border border-slate-200">
+                  <Image
+                    src={project.architecture_diagram.url}
+                    alt="Diagramme architecture"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto"
+                  />
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Benefits */}
+          {project.benefits && project.benefits.length > 0 && (
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">Bénéfices</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {project.benefits.map((benefit: any, index: number) => (
+                  <div
+                    key={index}
+                    className="bg-gradient-to-br from-indigo-50 to-purple-50 p-6 rounded-xl"
+                  >
+                    <h3 className="font-bold text-slate-900 mb-2">{benefit.title_fr}</h3>
+                    {benefit.description_fr && (
+                      <p className="text-slate-600 text-sm">{benefit.description_fr}</p>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           )}
 
-          {/* Challenges */}
-          {project.challenges_fr && (
+          {/* Impact sections */}
+          {(project.societal_impact_fr || project.environmental_impact_fr) && (
             <div className="mb-12">
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">Défis</h2>
-              <div className="prose prose-slate max-w-none">
-                <RichTextContent content={project.challenges_fr} />
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">Impact</h2>
+              <div className="space-y-8">
+                {project.societal_impact_fr && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-800 mb-3">Impact sociétal</h3>
+                    <RichTextContent content={project.societal_impact_fr} />
+                  </div>
+                )}
+                {project.environmental_impact_fr && (
+                  <div>
+                    <h3 className="text-lg font-semibold text-slate-800 mb-3">Impact environnemental</h3>
+                    <RichTextContent content={project.environmental_impact_fr} />
+                  </div>
+                )}
               </div>
             </div>
           )}
 
-          {/* Solution */}
-          {project.solution_fr && (
+          {/* Technologies */}
+          {project.technologies && project.technologies.length > 0 && (
             <div className="mb-12">
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">Solution</h2>
-              <div className="prose prose-slate max-w-none">
-                <RichTextContent content={project.solution_fr} />
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">Technologies utilisées</h2>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech: any) => {
+                  const techData = typeof tech === 'object' ? tech : null
+                  if (!techData) return null
+                  return (
+                    <span
+                      key={techData.id}
+                      className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-sm"
+                      style={techData.color ? { borderLeft: `3px solid ${techData.color}` } : {}}
+                    >
+                      {techData.name}
+                    </span>
+                  )
+                })}
               </div>
             </div>
           )}
 
-          {/* Results */}
-          {project.results_fr && (
+          {/* Stakeholders */}
+          {project.stakeholders && project.stakeholders.length > 0 && (
             <div className="mb-12">
-              <h2 className="text-2xl font-bold text-slate-900 mb-4">Résultats</h2>
-              <div className="prose prose-slate max-w-none">
-                <RichTextContent content={project.results_fr} />
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">Parties prenantes</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                {project.stakeholders.map((stakeholder: any, index: number) => (
+                  <div key={index} className="flex items-start gap-4 p-4 bg-slate-50 rounded-lg">
+                    {stakeholder.logo && typeof stakeholder.logo === 'object' && stakeholder.logo.url && (
+                      <div className="w-12 h-12 relative rounded overflow-hidden flex-shrink-0">
+                        <Image
+                          src={stakeholder.logo.url}
+                          alt={stakeholder.name}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    )}
+                    <div>
+                      <h3 className="font-bold text-slate-900">{stakeholder.name}</h3>
+                      <span className="text-xs text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">
+                        {stakeholder.role}
+                      </span>
+                      {stakeholder.description_fr && (
+                        <p className="text-slate-600 text-sm mt-2">{stakeholder.description_fr}</p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Gallery */}
+          {project.gallery && project.gallery.length > 0 && (
+            <div className="mb-12">
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">Galerie</h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                {project.gallery.map((item: any, index: number) => {
+                  const image = typeof item.image === 'object' ? item.image : null
+                  if (!image?.url) return null
+                  return (
+                    <div key={index} className="relative aspect-video rounded-lg overflow-hidden">
+                      <Image
+                        src={image.url}
+                        alt={item.caption_fr || `Image ${index + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                      {item.caption_fr && (
+                        <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-sm p-2">
+                          {item.caption_fr}
+                        </div>
+                      )}
+                    </div>
+                  )
+                })}
               </div>
             </div>
           )}
         </div>
       </section>
 
-
       {/* Links */}
-      <section className="py-12">
+      <section className="py-12 bg-slate-50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap gap-4">
             {project.live_url && (
@@ -249,6 +367,17 @@ export default async function ProjectPage({ params }: Props) {
                 Code source
               </a>
             )}
+            {project.links && project.links.length > 0 && project.links.map((link: any, index: number) => (
+              <a
+                key={index}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-white text-slate-700 border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors"
+              >
+                {link.label_fr || link.type}
+              </a>
+            ))}
           </div>
         </div>
       </section>

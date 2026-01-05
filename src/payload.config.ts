@@ -16,6 +16,9 @@ import { Categories } from './collections/Categories'
 import { Media } from './collections/Media'
 import { SocialLinks } from './collections/SocialLinks'
 import { Technologies } from './collections/Technologies'
+import { Comments } from './collections/Comments'
+import { ContactMessages } from './collections/ContactMessages'
+import { Tags } from './collections/Tags'
 
 // Globals
 import { SiteSettings } from './globals/SiteSettings'
@@ -58,6 +61,9 @@ export default buildConfig({
     Technologies,
     Media,
     SocialLinks,
+    Comments,
+    ContactMessages,
+    Tags,
   ],
 
   globals: [

@@ -12,255 +12,497 @@ export const Projects: CollectionConfig = {
     group: 'Contenu',
   },
   fields: [
-    // Titre
     {
-      type: 'row',
-      fields: [
+      type: 'tabs',
+      tabs: [
+        // Tab 1: Identité
         {
-          name: 'title_fr',
-          type: 'text',
-          label: 'Titre (FR)',
-          required: true,
-          admin: { width: '50%' },
-        },
-        {
-          name: 'title_en',
-          type: 'text',
-          label: 'Titre (EN)',
-          admin: { width: '50%' },
-        },
-      ],
-    },
-    {
-      name: 'slug',
-      type: 'text',
-      label: 'Slug URL',
-      required: true,
-      unique: true,
-    },
-    // Résumé
-    {
-      type: 'row',
-      fields: [
-        {
-          name: 'summary_fr',
-          type: 'textarea',
-          label: 'Résumé court (FR)',
-          required: true,
-          admin: { width: '50%' },
-        },
-        {
-          name: 'summary_en',
-          type: 'textarea',
-          label: 'Résumé court (EN)',
-          admin: { width: '50%' },
-        },
-      ],
-    },
-    // Image
-    {
-      name: 'featuredImage',
-      type: 'upload',
-      label: 'Image principale',
-      relationTo: 'media',
-    },
-    // Statut et options
-    {
-      type: 'row',
-      fields: [
-        {
-          name: 'status',
-          type: 'select',
-          label: 'Statut',
-          required: true,
-          defaultValue: 'draft',
-          options: [
-            { label: 'Brouillon', value: 'draft' },
-            { label: 'Publié', value: 'published' },
-            { label: 'Archivé', value: 'archived' },
+          label: 'Identité',
+          fields: [
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'title_fr',
+                  type: 'text',
+                  label: 'Titre (FR)',
+                  required: true,
+                  admin: { width: '50%' },
+                },
+                {
+                  name: 'title_en',
+                  type: 'text',
+                  label: 'Titre (EN)',
+                  admin: { width: '50%' },
+                },
+              ],
+            },
+            {
+              name: 'slug',
+              type: 'text',
+              label: 'Slug URL',
+              required: true,
+              unique: true,
+            },
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'summary_fr',
+                  type: 'textarea',
+                  label: 'Résumé court (FR)',
+                  admin: { width: '50%' },
+                },
+                {
+                  name: 'summary_en',
+                  type: 'textarea',
+                  label: 'Résumé court (EN)',
+                  admin: { width: '50%' },
+                },
+              ],
+            },
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'description_fr',
+                  type: 'richText',
+                  label: 'Description (FR)',
+                  admin: { width: '50%' },
+                },
+                {
+                  name: 'description_en',
+                  type: 'richText',
+                  label: 'Description (EN)',
+                  admin: { width: '50%' },
+                },
+              ],
+            },
+            {
+              name: 'featuredImage',
+              type: 'upload',
+              label: 'Image principale',
+              relationTo: 'media',
+            },
           ],
-          admin: { width: '25%' },
         },
+        // Tab 2: Métier
         {
-          name: 'featured',
-          type: 'checkbox',
-          label: 'Mis en avant',
-          defaultValue: false,
-          admin: { width: '25%' },
+          label: 'Métier',
+          fields: [
+            {
+              name: 'domain',
+              type: 'text',
+              label: 'Domaine',
+              admin: {
+                description: 'Ex: Fintech, E-commerce, SaaS...',
+              },
+            },
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'business_context_fr',
+                  type: 'richText',
+                  label: 'Contexte métier (FR)',
+                  admin: { width: '50%' },
+                },
+                {
+                  name: 'business_context_en',
+                  type: 'richText',
+                  label: 'Contexte métier (EN)',
+                  admin: { width: '50%' },
+                },
+              ],
+            },
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'problem_solved_fr',
+                  type: 'richText',
+                  label: 'Problème résolu (FR)',
+                  admin: { width: '50%' },
+                },
+                {
+                  name: 'problem_solved_en',
+                  type: 'richText',
+                  label: 'Problème résolu (EN)',
+                  admin: { width: '50%' },
+                },
+              ],
+            },
+          ],
         },
+        // Tab 3: Impact
         {
-          name: 'order',
-          type: 'number',
-          label: 'Ordre',
-          defaultValue: 0,
-          admin: { width: '25%' },
+          label: 'Impact',
+          fields: [
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'societal_impact_fr',
+                  type: 'richText',
+                  label: 'Impact sociétal (FR)',
+                  admin: { width: '50%' },
+                },
+                {
+                  name: 'societal_impact_en',
+                  type: 'richText',
+                  label: 'Impact sociétal (EN)',
+                  admin: { width: '50%' },
+                },
+              ],
+            },
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'environmental_impact_fr',
+                  type: 'richText',
+                  label: 'Impact environnemental (FR)',
+                  admin: { width: '50%' },
+                },
+                {
+                  name: 'environmental_impact_en',
+                  type: 'richText',
+                  label: 'Impact environnemental (EN)',
+                  admin: { width: '50%' },
+                },
+              ],
+            },
+            {
+              name: 'benefits',
+              type: 'array',
+              label: 'Bénéfices',
+              fields: [
+                {
+                  name: 'icon',
+                  type: 'text',
+                  label: 'Icône',
+                  admin: { description: 'Nom icône Lucide (ex: TrendingUp, Users)' },
+                },
+                {
+                  name: 'title_fr',
+                  type: 'text',
+                  label: 'Titre (FR)',
+                  required: true,
+                },
+                {
+                  name: 'title_en',
+                  type: 'text',
+                  label: 'Titre (EN)',
+                },
+                {
+                  name: 'description_fr',
+                  type: 'textarea',
+                  label: 'Description (FR)',
+                },
+                {
+                  name: 'description_en',
+                  type: 'textarea',
+                  label: 'Description (EN)',
+                },
+              ],
+            },
+          ],
         },
+        // Tab 4: Technique
         {
-          name: 'domain',
-          type: 'text',
-          label: 'Domaine',
-          admin: { width: '25%' },
+          label: 'Technique',
+          fields: [
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'architecture_fr',
+                  type: 'richText',
+                  label: 'Architecture (FR)',
+                  admin: { width: '50%' },
+                },
+                {
+                  name: 'architecture_en',
+                  type: 'richText',
+                  label: 'Architecture (EN)',
+                  admin: { width: '50%' },
+                },
+              ],
+            },
+            {
+              name: 'architecture_diagram',
+              type: 'upload',
+              label: 'Diagramme architecture',
+              relationTo: 'media',
+            },
+            {
+              name: 'technologies',
+              type: 'relationship',
+              label: 'Technologies utilisées',
+              relationTo: 'technologies',
+              hasMany: true,
+            },
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'github_url',
+                  type: 'text',
+                  label: 'URL GitHub',
+                  admin: { width: '50%' },
+                },
+                {
+                  name: 'live_url',
+                  type: 'text',
+                  label: 'URL Démo',
+                  admin: { width: '50%' },
+                },
+              ],
+            },
+            {
+              name: 'links',
+              type: 'array',
+              label: 'Autres liens',
+              fields: [
+                {
+                  name: 'type',
+                  type: 'select',
+                  label: 'Type',
+                  required: true,
+                  options: [
+                    { label: 'Documentation', value: 'docs' },
+                    { label: 'Vidéo', value: 'video' },
+                    { label: 'Article', value: 'article' },
+                    { label: 'Design', value: 'design' },
+                    { label: 'API', value: 'api' },
+                    { label: 'Autre', value: 'other' },
+                  ],
+                },
+                {
+                  name: 'url',
+                  type: 'text',
+                  label: 'URL',
+                  required: true,
+                },
+                {
+                  name: 'label_fr',
+                  type: 'text',
+                  label: 'Libellé (FR)',
+                },
+                {
+                  name: 'label_en',
+                  type: 'text',
+                  label: 'Libellé (EN)',
+                },
+              ],
+            },
+          ],
+        },
+        // Tab 5: Parties prenantes
+        {
+          label: 'Parties prenantes',
+          fields: [
+            {
+              name: 'stakeholders',
+              type: 'array',
+              label: 'Parties prenantes',
+              fields: [
+                {
+                  name: 'name',
+                  type: 'text',
+                  label: 'Nom',
+                  required: true,
+                },
+                {
+                  name: 'role',
+                  type: 'select',
+                  label: 'Rôle',
+                  required: true,
+                  options: [
+                    { label: 'Client', value: 'client' },
+                    { label: 'Partenaire', value: 'partner' },
+                    { label: 'Utilisateur final', value: 'end_user' },
+                    { label: 'Sponsor', value: 'sponsor' },
+                    { label: 'Équipe', value: 'team' },
+                    { label: 'Investisseur', value: 'investor' },
+                    { label: 'Autre', value: 'other' },
+                  ],
+                },
+                {
+                  name: 'description_fr',
+                  type: 'textarea',
+                  label: 'Description (FR)',
+                },
+                {
+                  name: 'description_en',
+                  type: 'textarea',
+                  label: 'Description (EN)',
+                },
+                {
+                  name: 'logo',
+                  type: 'upload',
+                  label: 'Logo',
+                  relationTo: 'media',
+                },
+                {
+                  name: 'website',
+                  type: 'text',
+                  label: 'Site web',
+                },
+              ],
+            },
+          ],
+        },
+        // Tab 6: Galerie
+        {
+          label: 'Galerie',
+          fields: [
+            {
+              name: 'gallery',
+              type: 'array',
+              label: 'Images',
+              fields: [
+                {
+                  name: 'image',
+                  type: 'upload',
+                  label: 'Image',
+                  relationTo: 'media',
+                  required: true,
+                },
+                {
+                  name: 'caption_fr',
+                  type: 'text',
+                  label: 'Légende (FR)',
+                },
+                {
+                  name: 'caption_en',
+                  type: 'text',
+                  label: 'Légende (EN)',
+                },
+              ],
+            },
+          ],
+        },
+        // Tab 7: SEO & IA
+        {
+          label: 'SEO & IA',
+          fields: [
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'meta_title_fr',
+                  type: 'text',
+                  label: 'Meta Title (FR)',
+                  admin: { width: '50%' },
+                },
+                {
+                  name: 'meta_title_en',
+                  type: 'text',
+                  label: 'Meta Title (EN)',
+                  admin: { width: '50%' },
+                },
+              ],
+            },
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'meta_description_fr',
+                  type: 'textarea',
+                  label: 'Meta Description (FR)',
+                  admin: { width: '50%' },
+                },
+                {
+                  name: 'meta_description_en',
+                  type: 'textarea',
+                  label: 'Meta Description (EN)',
+                  admin: { width: '50%' },
+                },
+              ],
+            },
+            {
+              type: 'row',
+              fields: [
+                {
+                  name: 'ai_social_summary_fr',
+                  type: 'textarea',
+                  label: 'Résumé social IA (FR)',
+                  admin: { width: '50%', description: 'Généré par IA pour réseaux sociaux' },
+                },
+                {
+                  name: 'ai_social_summary_en',
+                  type: 'textarea',
+                  label: 'Résumé social IA (EN)',
+                  admin: { width: '50%' },
+                },
+              ],
+            },
+            {
+              name: 'ai_generated_at',
+              type: 'date',
+              label: 'Date génération IA',
+              admin: {
+                readOnly: true,
+                date: { pickerAppearance: 'dayAndTime' },
+              },
+            },
+          ],
         },
       ],
     },
-    // Client et dates
+    // Sidebar fields
     {
-      type: 'row',
-      fields: [
-        {
-          name: 'client',
-          type: 'text',
-          label: 'Client',
-          admin: { width: '33%' },
-        },
-        {
-          name: 'start_date',
-          type: 'date',
-          label: 'Date début',
-          admin: { width: '33%' },
-        },
-        {
-          name: 'end_date',
-          type: 'date',
-          label: 'Date fin',
-          admin: { width: '33%' },
-        },
+      name: 'status',
+      type: 'select',
+      label: 'Statut',
+      required: true,
+      defaultValue: 'draft',
+      options: [
+        { label: 'Brouillon', value: 'draft' },
+        { label: 'En revue', value: 'review' },
+        { label: 'Publié', value: 'published' },
+        { label: 'Archivé', value: 'archived' },
       ],
-    },
-    // Contenu riche
-    {
-      name: 'content',
-      type: 'richText',
-      label: 'Contenu principal',
+      admin: { position: 'sidebar' },
     },
     {
-      type: 'row',
-      fields: [
-        {
-          name: 'context_fr',
-          type: 'richText',
-          label: 'Contexte (FR)',
-          admin: { width: '50%' },
-        },
-        {
-          name: 'context_en',
-          type: 'richText',
-          label: 'Contexte (EN)',
-          admin: { width: '50%' },
-        },
-      ],
+      name: 'featured',
+      type: 'checkbox',
+      label: 'Mis en avant',
+      defaultValue: false,
+      admin: { position: 'sidebar' },
     },
     {
-      type: 'row',
-      fields: [
-        {
-          name: 'challenges_fr',
-          type: 'richText',
-          label: 'Défis (FR)',
-          admin: { width: '50%' },
-        },
-        {
-          name: 'challenges_en',
-          type: 'richText',
-          label: 'Défis (EN)',
-          admin: { width: '50%' },
-        },
-      ],
+      name: 'order',
+      type: 'number',
+      label: 'Ordre',
+      defaultValue: 0,
+      admin: { position: 'sidebar' },
     },
     {
-      type: 'row',
-      fields: [
-        {
-          name: 'solution_fr',
-          type: 'richText',
-          label: 'Solution (FR)',
-          admin: { width: '50%' },
-        },
-        {
-          name: 'solution_en',
-          type: 'richText',
-          label: 'Solution (EN)',
-          admin: { width: '50%' },
-        },
-      ],
+      name: 'author',
+      type: 'relationship',
+      label: 'Auteur',
+      relationTo: 'users',
+      admin: { position: 'sidebar' },
     },
-    {
-      type: 'row',
-      fields: [
-        {
-          name: 'results_fr',
-          type: 'richText',
-          label: 'Résultats (FR)',
-          admin: { width: '50%' },
-        },
-        {
-          name: 'results_en',
-          type: 'richText',
-          label: 'Résultats (EN)',
-          admin: { width: '50%' },
-        },
-      ],
-    },
-    // Liens
-    {
-      type: 'row',
-      fields: [
-        {
-          name: 'github_url',
-          type: 'text',
-          label: 'URL GitHub',
-          admin: { width: '50%' },
-        },
-        {
-          name: 'live_url',
-          type: 'text',
-          label: 'URL Démo',
-          admin: { width: '50%' },
-        },
-      ],
-    },
-    // Catégories
     {
       name: 'categories',
       type: 'relationship',
       label: 'Catégories',
       relationTo: 'categories',
       hasMany: true,
-    },
-    // SEO
-    {
-      type: 'row',
-      fields: [
-        {
-          name: 'meta_title_fr',
-          type: 'text',
-          label: 'Meta Title (FR)',
-          admin: { width: '50%' },
-        },
-        {
-          name: 'meta_title_en',
-          type: 'text',
-          label: 'Meta Title (EN)',
-          admin: { width: '50%' },
-        },
-      ],
+      admin: { position: 'sidebar' },
     },
     {
-      type: 'row',
-      fields: [
-        {
-          name: 'meta_description_fr',
-          type: 'textarea',
-          label: 'Meta Description (FR)',
-          admin: { width: '50%' },
-        },
-        {
-          name: 'meta_description_en',
-          type: 'textarea',
-          label: 'Meta Description (EN)',
-          admin: { width: '50%' },
-        },
-      ],
+      name: 'publishedAt',
+      type: 'date',
+      label: 'Date de publication',
+      admin: {
+        position: 'sidebar',
+        date: { pickerAppearance: 'dayAndTime' },
+      },
     },
   ],
   timestamps: true,
