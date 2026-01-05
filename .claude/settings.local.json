@@ -34,7 +34,11 @@
       "WebSearch",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:onelink-nu.vercel.app)"
+      "WebFetch(domain:onelink-nu.vercel.app)",
+      "Bash(pnpm type-check:*)",
+      "Bash(npx tsc:*)",
+      "Bash(pnpm exec tsc:*)",
+      "Bash(pnpm build:*)"
     ]
   }
 }
