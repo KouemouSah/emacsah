@@ -42,7 +42,8 @@
       "Bash(wc:*)",
       "Bash(find:*)",
       "Bash(git log:*)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "WebFetch(domain:id-preview--2f8a8152-2c72-40e3-87be-a031a50b0aea.lovable.app)"
     ]
   }
 }

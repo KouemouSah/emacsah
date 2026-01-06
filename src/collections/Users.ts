@@ -11,6 +11,7 @@ export const Users: CollectionConfig = {
     {
       name: 'name',
       type: 'text',
+      label: 'Nom complet',
     },
     {
       name: 'role',
@@ -19,8 +20,14 @@ export const Users: CollectionConfig = {
         { label: 'Admin', value: 'admin' },
         { label: 'Editor', value: 'editor' },
       ],
-      defaultValue: 'editor',
+      defaultValue: 'admin',
       required: true,
+      admin: {
+        condition: (data, siblingData, { user }) => {
+          // Hide role field on create-first-user (no existing user)
+          return !!user
+        },
+      },
     },
   ],
 }
