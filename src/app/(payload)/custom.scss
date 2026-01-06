@@ -32,10 +32,9 @@
   }
 
   /* ============================================
-     Create First User - Premium Onboarding
+     Premium Auth Pages (Login + Create User)
      ============================================ */
-  .create-first-user,
-  .template-minimal.create-first-user {
+  .template-minimal {
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -45,93 +44,39 @@
     padding: 24px;
     position: relative;
     overflow: hidden;
+  }
 
-    /* Animated background orbs */
-    &::before {
-      content: '';
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
-      top: -200px;
-      right: -200px;
-      animation: float 8s ease-in-out infinite;
-      pointer-events: none;
-    }
+  /* Animated background orbs */
+  .template-minimal::before {
+    content: '' !important;
+    position: absolute !important;
+    width: 600px !important;
+    height: 600px !important;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%) !important;
+    top: -200px !important;
+    right: -200px !important;
+    animation: float 8s ease-in-out infinite !important;
+    pointer-events: none !important;
+    border: none !important;
+    border-radius: 50% !important;
+  }
 
-    &::after {
-      content: '';
-      position: absolute;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
-      bottom: -150px;
-      left: -150px;
-      animation: float 10s ease-in-out infinite reverse;
-      pointer-events: none;
-    }
+  .template-minimal::after {
+    content: '' !important;
+    position: absolute !important;
+    width: 500px !important;
+    height: 500px !important;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%) !important;
+    bottom: -150px !important;
+    left: -150px !important;
+    animation: float 10s ease-in-out infinite reverse !important;
+    pointer-events: none !important;
+    border-radius: 50% !important;
   }
 
   @keyframes float {
     0%, 100% { transform: translate(0, 0) scale(1); }
     50% { transform: translate(30px, -30px) scale(1.05); }
-  }
-
-  /* Main Card - Create First User */
-  .create-first-user .template-minimal__wrap,
-  .template-minimal.create-first-user .template-minimal__wrap {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    max-width: 520px;
-    margin: 0 auto;
-    min-height: auto;
-    display: flex;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(20px);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-xl), var(--shadow-glow);
-    overflow: visible;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 0;
-  }
-
-  /* Remove split layout for create user */
-  .create-first-user .template-minimal__wrap::before {
-    display: none !important;
-  }
-
-  /* Header zone with logo */
-  .create-first-user .template-minimal__wrap > *:first-child:not(style) {
-    position: relative;
-    padding: 48px 48px 0 48px;
-  }
-
-  .create-first-user .template-minimal__wrap > *:first-child:not(style)::before {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 24px;
-    background: var(--brand-gradient);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.35);
-    /* ES Logo */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='20' fill='url(%23grad)'/%3E%3Ctext x='40' y='52' text-anchor='middle' font-family='system-ui, -apple-system, sans-serif' font-size='28' font-weight='800' fill='white'%3EES%3C/text%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23667eea'/%3E%3Cstop offset='50%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
-    background-size: contain;
-    animation: logoEnter 0.6s ease-out;
-  }
-
-  @keyframes logoEnter {
-    from {
-      opacity: 0;
-      transform: scale(0.8) translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
   }
 
   /* Hide default branding */
@@ -141,9 +86,78 @@
     display: none !important;
   }
 
-  /* Create First User Typography */
-  .create-first-user h1 {
-    font-size: 1.75rem !important;
+  /* Main Card Container - Premium Centered Design */
+  .template-minimal__wrap {
+    position: relative !important;
+    z-index: 10 !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto !important;
+    min-height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: var(--shadow-xl), var(--shadow-glow) !important;
+    overflow: visible !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 48px !important;
+    animation: cardEnter 0.5s ease-out !important;
+  }
+
+  @keyframes cardEnter {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.98);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Logo at top of card */
+  .template-minimal__wrap > *:first-child {
+    position: relative;
+  }
+
+  .template-minimal__wrap::before {
+    content: '' !important;
+    display: block !important;
+    width: 72px !important;
+    height: 72px !important;
+    margin: 0 auto 28px !important;
+    background: var(--brand-gradient) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.35) !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23667eea'/%3E%3Cstop offset='50%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='72' height='72' rx='18' fill='url(%23g)'/%3E%3Ctext x='36' y='47' text-anchor='middle' font-family='system-ui,-apple-system,sans-serif' font-size='26' font-weight='800' fill='white'%3EES%3C/text%3E%3C/svg%3E") !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    animation: logoEnter 0.6s ease-out !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    min-width: 72px !important;
+    flex-shrink: 0 !important;
+  }
+
+  @keyframes logoEnter {
+    from {
+      opacity: 0;
+      transform: scale(0.8) translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* Typography */
+  .template-minimal h1 {
+    font-size: 1.625rem !important;
     font-weight: 700 !important;
     color: var(--text-primary) !important;
     margin: 0 0 8px 0 !important;
@@ -152,38 +166,39 @@
     letter-spacing: -0.025em !important;
   }
 
-  .create-first-user p {
+  .template-minimal p {
     font-size: 0.9375rem !important;
     color: var(--text-secondary) !important;
-    margin: 0 0 32px 0 !important;
-    line-height: 1.6 !important;
+    margin: 0 0 28px 0 !important;
+    line-height: 1.5 !important;
     text-align: center !important;
   }
 
-  /* Form Container - Create First User */
-  .create-first-user form {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding: 8px 48px 48px 48px;
+  /* Form Container */
+  .template-minimal form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
   }
 
   /* Field Groups with Animation */
-  .create-first-user .field-type {
-    margin: 0 0 20px 0 !important;
+  .template-minimal .field-type {
+    margin: 0 0 18px 0 !important;
     padding: 0 !important;
-    animation: fieldEnter 0.5s ease-out both;
+    animation: fieldEnter 0.4s ease-out both !important;
   }
 
-  .create-first-user .field-type:nth-child(1) { animation-delay: 0.1s; }
-  .create-first-user .field-type:nth-child(2) { animation-delay: 0.15s; }
-  .create-first-user .field-type:nth-child(3) { animation-delay: 0.2s; }
-  .create-first-user .field-type:nth-child(4) { animation-delay: 0.25s; }
+  .template-minimal .field-type:nth-child(1) { animation-delay: 0.05s; }
+  .template-minimal .field-type:nth-child(2) { animation-delay: 0.1s; }
+  .template-minimal .field-type:nth-child(3) { animation-delay: 0.15s; }
+  .template-minimal .field-type:nth-child(4) { animation-delay: 0.2s; }
+  .template-minimal .field-type:nth-child(5) { animation-delay: 0.25s; }
+  .template-minimal .field-type:nth-child(6) { animation-delay: 0.3s; }
 
   @keyframes fieldEnter {
     from {
       opacity: 0;
-      transform: translateY(12px);
+      transform: translateY(10px);
     }
     to {
       opacity: 1;
@@ -191,12 +206,8 @@
     }
   }
 
-  /* Modern Floating Labels */
-  .create-first-user .field-type {
-    position: relative;
-  }
-
-  .create-first-user label.field-label:not(.unstyled) {
+  /* Labels */
+  .template-minimal label.field-label:not(.unstyled) {
     display: block !important;
     font-size: 0.8125rem !important;
     font-weight: 600 !important;
@@ -204,27 +215,27 @@
     margin-bottom: 8px !important;
     padding: 0 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
+    letter-spacing: 0.04em !important;
     transition: color var(--transition) !important;
   }
 
-  .create-first-user .field-type:focus-within label.field-label {
+  .template-minimal .field-type:focus-within label.field-label {
     color: var(--brand-primary) !important;
   }
 
-  .create-first-user .field-label .required {
+  .template-minimal .field-label .required {
     color: #f43f5e !important;
     margin-left: 2px !important;
   }
 
   /* Premium Input Styling */
-  .create-first-user input[type="text"],
-  .create-first-user input[type="email"],
-  .create-first-user input[type="password"] {
+  .template-minimal input[type="text"],
+  .template-minimal input[type="email"],
+  .template-minimal input[type="password"] {
     width: 100% !important;
-    height: 56px !important;
-    padding: 0 20px !important;
-    font-size: 1rem !important;
+    height: 52px !important;
+    padding: 0 18px !important;
+    font-size: 0.9375rem !important;
     font-family: inherit !important;
     background: var(--surface-bg) !important;
     border: 2px solid transparent !important;
@@ -250,23 +261,39 @@
     }
   }
 
-  /* Password field icon enhancement */
-  .create-first-user .field-type.password {
-    position: relative;
+  /* Select Styling */
+  .template-minimal .rs__control,
+  .template-minimal .select__control {
+    min-height: 52px !important;
+    background: var(--surface-bg) !important;
+    border: 2px solid transparent !important;
+    border-radius: var(--radius-md) !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02) !important;
+    cursor: pointer !important;
+
+    &:hover {
+      background: #f1f5f9 !important;
+    }
+
+    &--is-focused {
+      background: var(--surface-card) !important;
+      border-color: var(--brand-primary) !important;
+      box-shadow: 0 0 0 4px var(--brand-primary-light), inset 0 2px 4px rgba(0, 0, 0, 0.02) !important;
+    }
   }
 
   /* Premium Submit Button */
-  .create-first-user .form-submit {
-    margin-top: 12px !important;
+  .template-minimal .form-submit {
+    margin-top: 8px !important;
     padding: 0 !important;
-    animation: fieldEnter 0.5s ease-out 0.3s both;
+    animation: fieldEnter 0.4s ease-out 0.35s both !important;
   }
 
-  .create-first-user .btn--style-primary {
+  .template-minimal .btn--style-primary {
     width: 100% !important;
-    height: 56px !important;
-    padding: 0 32px !important;
-    font-size: 1rem !important;
+    height: 52px !important;
+    padding: 0 28px !important;
+    font-size: 0.9375rem !important;
     font-weight: 600 !important;
     font-family: inherit !important;
     border-radius: var(--radius-md) !important;
@@ -314,109 +341,48 @@
     }
   }
 
-  /* Footer text styling */
-  .create-first-user .template-minimal__wrap::after {
-    content: 'EMACSAH Portfolio CMS';
-    display: block;
-    text-align: center;
-    padding: 20px;
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border-top: 1px solid var(--border-color);
-    margin-top: 0;
+  /* Footer branding */
+  .template-minimal__wrap::after {
+    content: 'EMACSAH Portfolio CMS' !important;
+    display: block !important;
+    text-align: center !important;
+    padding-top: 24px !important;
+    margin-top: 8px !important;
+    font-size: 0.6875rem !important;
+    color: var(--text-muted) !important;
+    letter-spacing: 0.12em !important;
+    text-transform: uppercase !important;
+    border-top: 1px solid var(--border-color) !important;
   }
 
   /* ============================================
-     Login Page - Split Layout
+     Responsive
      ============================================ */
-  .template-minimal:not(.create-first-user),
-  .login:not(.create-first-user) {
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--surface-bg);
-    padding: 24px;
-  }
+  @media (max-width: 540px) {
+    .template-minimal__wrap {
+      max-width: 100% !important;
+      padding: 32px 24px !important;
+      border-radius: var(--radius-lg) !important;
+    }
 
-  /* Remove split layout pseudo-elements */
-  .template-minimal:not(.create-first-user)::before,
-  .template-minimal:not(.create-first-user)::after {
-    display: none !important;
-  }
+    .template-minimal__wrap::before {
+      width: 60px !important;
+      height: 60px !important;
+      border-radius: 14px !important;
+      margin-bottom: 24px !important;
+    }
 
-  /* Main Card Container */
-  .template-minimal:not(.create-first-user) .template-minimal__wrap {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    min-height: auto;
-    display: flex;
-    background: var(--surface-card);
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-  }
+    .template-minimal h1 {
+      font-size: 1.375rem !important;
+    }
 
-  /* Logo Section (Left Side) - Login only */
-  .template-minimal:not(.create-first-user) .template-minimal__wrap::before {
-    content: '';
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 320px;
-    min-width: 320px;
-    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
-    border-right: 1px solid var(--border-color);
-    /* ES Logo as SVG background */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 240'%3E%3Cdefs%3E%3ClinearGradient id='logoGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23667eea'/%3E%3Cstop offset='50%25' stop-color='%23764ba2'/%3E%3Cstop offset='100%25' stop-color='%23f093fb'/%3E%3C/linearGradient%3E%3ClinearGradient id='logoGrad2' x1='100%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2306b6d4'/%3E%3Cstop offset='100%25' stop-color='%236366f1'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Hexagon outer ring --%3E%3Cpath d='M100 10 L170 50 L170 130 L100 170 L30 130 L30 50 Z' fill='none' stroke='url(%23logoGrad)' stroke-width='4' opacity='0.3'/%3E%3C!-- Hexagon middle ring --%3E%3Cpath d='M100 25 L155 57 L155 123 L100 155 L45 123 L45 57 Z' fill='none' stroke='url(%23logoGrad)' stroke-width='3' opacity='0.5'/%3E%3C!-- Hexagon inner filled --%3E%3Cpath d='M100 40 L140 65 L140 115 L100 140 L60 115 L60 65 Z' fill='url(%23logoGrad)'/%3E%3C!-- ES Letters --%3E%3Ctext x='100' y='112' text-anchor='middle' font-family='system-ui, -apple-system, sans-serif' font-size='42' font-weight='800' fill='white'%3EES%3C/text%3E%3C!-- Brand Name --%3E%3Ctext x='100' y='195' text-anchor='middle' font-family='system-ui, -apple-system, sans-serif' font-size='22' font-weight='700' fill='%230f172a' letter-spacing='0.1em'%3EEMACSAH%3C/text%3E%3C!-- Tagline --%3E%3Ctext x='100' y='218' text-anchor='middle' font-family='system-ui, -apple-system, sans-serif' font-size='11' fill='%2364748b' letter-spacing='0.05em'%3EPortfolio CMS%3C/text%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 160px auto;
-  }
-
-  /* Form Section (Right Side) */
-  .template-minimal:not(.create-first-user) .template-minimal__wrap > *:not(style) {
-    flex: 1;
-    padding: 48px 40px;
-    max-width: none;
-    width: auto;
-  }
-
-  /* ============================================
-     Typography - Login
-     ============================================ */
-  .template-minimal:not(.create-first-user) h1,
-  .login:not(.create-first-user) h1 {
-    font-size: 1.5rem !important;
-    font-weight: 600 !important;
-    color: var(--text-primary) !important;
-    margin: 0 0 8px 0 !important;
-    line-height: 1.3 !important;
-  }
-
-  .template-minimal:not(.create-first-user) p,
-  .login:not(.create-first-user) p {
-    font-size: 0.875rem !important;
-    color: var(--text-secondary) !important;
-    margin: 0 0 32px 0 !important;
-    line-height: 1.5 !important;
-  }
-
-  /* ============================================
-     Form Layout - General
-     ============================================ */
-  .template-minimal:not(.create-first-user) form,
-  .login:not(.create-first-user) form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    .template-minimal input[type="text"],
+    .template-minimal input[type="email"],
+    .template-minimal input[type="password"],
+    .template-minimal .btn--style-primary,
+    .template-minimal .rs__control {
+      height: 48px !important;
+    }
   }
 
   /* ============================================
