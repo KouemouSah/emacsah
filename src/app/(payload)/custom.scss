@@ -33,7 +33,7 @@
     align-items: center;
     justify-content: center;
     background: var(--bg-dark);
-    padding: 24px;
+    padding: 30px;
   }
 
   /* Remove any pseudo-elements */
@@ -49,11 +49,11 @@
     display: none !important;
   }
 
-  /* Main Card Container */
+  /* Main Container - Logo + Card */
   .template-minimal__wrap {
     position: relative !important;
     width: 100% !important;
-    max-width: 440px !important;
+    max-width: 620px !important;
     margin: 0 auto !important;
     display: flex !important;
     flex-direction: column !important;
@@ -64,19 +64,20 @@
     padding: 0 !important;
   }
 
-  /* Shield Icon */
+  /* Shield Icon - Above Card */
   .template-minimal__wrap::before {
     content: '' !important;
     display: block !important;
-    width: 56px !important;
-    height: 56px !important;
-    margin: 0 auto 32px !important;
+    width: 52px !important;
+    height: 52px !important;
+    margin: 0 auto 20px !important;
     background-color: var(--accent) !important;
     border-radius: var(--radius-lg) !important;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230d1117' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/%3E%3Cpath d='M9 12l2 2 4-4'/%3E%3C/svg%3E") !important;
-    background-size: 28px !important;
+    background-size: 26px !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
+    flex-shrink: 0 !important;
   }
 
   /* Hide default ::after */
@@ -84,39 +85,75 @@
     display: none !important;
   }
 
+  /* Card Container - wraps everything after logo */
+  .template-minimal__wrap > *:not(style) {
+    width: 100% !important;
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--radius-xl) !important;
+    padding: 40px !important;
+  }
+
   /* Typography */
   .template-minimal h1 {
-    font-size: 1.75rem !important;
+    font-size: 1.625rem !important;
     font-weight: 700 !important;
     color: var(--text-primary) !important;
-    margin: 0 0 8px 0 !important;
+    margin: 0 0 6px 0 !important;
     text-align: center !important;
     letter-spacing: -0.02em !important;
   }
 
-  /* Style "Admin" in title with accent color */
-  .template-minimal h1::after {
-    content: '' !important;
-  }
-
   .template-minimal p {
-    font-size: 0.9375rem !important;
+    font-size: 0.875rem !important;
     color: var(--text-secondary) !important;
-    margin: 0 0 40px 0 !important;
+    margin: 0 0 28px 0 !important;
     text-align: center !important;
   }
 
-  /* Form Container */
+  /* Form Container - Grid Layout */
   .template-minimal form {
     width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px 16px !important;
   }
 
-  /* Field Groups - 2 column layout for name/email and passwords */
+  /* All Field Types */
   .template-minimal .field-type {
-    margin: 0 0 20px 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Name field (1st) - Left column */
+  .template-minimal form > .field-type:nth-child(1) {
+    grid-column: 1 !important;
+  }
+
+  /* Email field (2nd) - Right column */
+  .template-minimal form > .field-type:nth-child(2) {
+    grid-column: 2 !important;
+  }
+
+  /* Password field (3rd) - Left column */
+  .template-minimal form > .field-type:nth-child(3) {
+    grid-column: 1 !important;
+  }
+
+  /* Confirm Password field (4th) - Right column */
+  .template-minimal form > .field-type:nth-child(4) {
+    grid-column: 2 !important;
+  }
+
+  /* Role field (5th) - Hidden */
+  .template-minimal form > .field-type:nth-child(5) {
+    display: none !important;
+  }
+
+  /* Submit button - Full width */
+  .template-minimal .form-submit {
+    grid-column: 1 / -1 !important;
+    margin-top: 8px !important;
     padding: 0 !important;
   }
 
@@ -135,20 +172,13 @@
     margin-left: 2px !important;
   }
 
-  /* Input Container with Icon */
-  .template-minimal .field-type.text,
-  .template-minimal .field-type.email,
-  .template-minimal .field-type.password {
-    position: relative !important;
-  }
-
   /* Input Fields */
   .template-minimal input[type="text"],
   .template-minimal input[type="email"],
   .template-minimal input[type="password"] {
     width: 100% !important;
-    height: 48px !important;
-    padding: 0 16px 0 44px !important;
+    height: 46px !important;
+    padding: 0 14px !important;
     font-size: 0.9375rem !important;
     font-family: inherit !important;
     background: var(--bg-input) !important;
@@ -172,73 +202,17 @@
     }
   }
 
-  /* Input Icons */
-  .template-minimal .field-type.text .field-type__wrap::before,
-  .template-minimal .field-type.email .field-type__wrap::before {
-    content: '' !important;
-    position: absolute !important;
-    left: 14px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    width: 18px !important;
-    height: 18px !important;
-    background-color: var(--text-muted) !important;
-    mask-size: contain !important;
-    mask-repeat: no-repeat !important;
-    -webkit-mask-size: contain !important;
-    -webkit-mask-repeat: no-repeat !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
-  }
-
-  /* Name icon (user) */
-  .template-minimal .field-type.text .field-type__wrap::before {
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E") !important;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E") !important;
-  }
-
-  /* Email icon */
-  .template-minimal .field-type.email .field-type__wrap::before {
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpolyline points='22,6 12,13 2,6'/%3E%3C/svg%3E") !important;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpolyline points='22,6 12,13 2,6'/%3E%3C/svg%3E") !important;
-  }
-
-  /* Password fields - lock icon */
-  .template-minimal .field-type.password .field-type__wrap::before {
-    content: '' !important;
-    position: absolute !important;
-    left: 14px !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
-    width: 18px !important;
-    height: 18px !important;
-    background-color: var(--text-muted) !important;
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Crect x='3' y='11' width='18' height='11' rx='2' ry='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'/%3E%3C/svg%3E") !important;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3E%3Crect x='3' y='11' width='18' height='11' rx='2' ry='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'/%3E%3C/svg%3E") !important;
-    mask-size: contain !important;
-    mask-repeat: no-repeat !important;
-    -webkit-mask-size: contain !important;
-    -webkit-mask-repeat: no-repeat !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
-  }
-
-  /* Password hint */
+  /* Password hint - smaller */
   .template-minimal .field-description {
-    font-size: 0.75rem !important;
+    font-size: 0.6875rem !important;
     color: var(--text-muted) !important;
-    margin-top: 6px !important;
+    margin-top: 4px !important;
   }
 
-  /* Hide role field via CSS (backup) */
-  .template-minimal .field-type.select {
-    display: none !important;
-  }
-
-  /* Select Styling (for admin panel) */
+  /* Select Styling (hidden but styled as backup) */
   .template-minimal .rs__control,
   .template-minimal .select__control {
-    min-height: 48px !important;
+    min-height: 46px !important;
     background: var(--bg-input) !important;
     border: 1px solid var(--border-color) !important;
     border-radius: var(--radius-md) !important;
@@ -275,14 +249,9 @@
   }
 
   /* Submit Button */
-  .template-minimal .form-submit {
-    margin-top: 12px !important;
-    padding: 0 !important;
-  }
-
   .template-minimal .btn--style-primary {
     width: 100% !important;
-    height: 48px !important;
+    height: 46px !important;
     padding: 0 24px !important;
     font-size: 0.9375rem !important;
     font-weight: 600 !important;
@@ -304,14 +273,15 @@
     }
   }
 
-  /* Footer - SSL notice */
+  /* Footer - SSL notice (after form, full width) */
   .template-minimal form::after {
     content: 'Connexion sécurisée SSL' !important;
+    grid-column: 1 / -1 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 6px !important;
-    margin-top: 32px !important;
+    margin-top: 20px !important;
     font-size: 0.75rem !important;
     color: var(--text-muted) !important;
   }
@@ -332,26 +302,44 @@
   .template-minimal .field-error,
   .template-minimal .error {
     color: #f85149 !important;
-    font-size: 0.8125rem !important;
-    margin-top: 6px !important;
+    font-size: 0.75rem !important;
+    margin-top: 4px !important;
   }
 
   /* ============================================
-     Responsive
+     Responsive - Stack on mobile
      ============================================ */
-  @media (max-width: 480px) {
+  @media (max-width: 600px) {
+    .template-minimal {
+      padding: 30px 20px !important;
+    }
+
     .template-minimal__wrap {
       max-width: 100% !important;
-      padding: 0 16px !important;
+    }
+
+    .template-minimal__wrap > *:not(style) {
+      padding: 28px 20px !important;
+    }
+
+    .template-minimal form {
+      grid-template-columns: 1fr !important;
+    }
+
+    .template-minimal form > .field-type:nth-child(1),
+    .template-minimal form > .field-type:nth-child(2),
+    .template-minimal form > .field-type:nth-child(3),
+    .template-minimal form > .field-type:nth-child(4) {
+      grid-column: 1 !important;
     }
 
     .template-minimal h1 {
-      font-size: 1.5rem !important;
+      font-size: 1.375rem !important;
     }
   }
 
   /* ============================================
-     Admin Dashboard Styles (keep existing)
+     Admin Dashboard Styles
      ============================================ */
   .template-default {
     background: #f8fafc !important;
